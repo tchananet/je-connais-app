@@ -25,7 +25,8 @@
 }
 
 .jsgrid-grid-header {
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
+  overflow-x: scroll;
   overflow-y: scroll;
   user-select: none;
 }
@@ -36,10 +37,26 @@
 }
 
 .jsgrid-table {
-  width: 100%;
+  
   table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* @media (max-width:500px) {
+  .jsgrid-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+   
+} */
+
+@media (min-width:501px) {
+  .jsgrid-table {
+    width: 100%; 
+  }
+   
 }
 
 .jsgrid-cell {
