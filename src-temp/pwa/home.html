@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="thene-color" content="#FFFFFF">
+    <title>Document</title>
+    <link rel="shortcut icon" href="logo.png" type="image/x-type">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    
+    <h1>Hello World</h1>
+    <script src="src/index.js"></script>
+    <script>
+        if ('serviceWorker' in Navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+            
+        }
+    </script>
+</body>
+</html>
