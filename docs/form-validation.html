@@ -688,11 +688,11 @@
                       </div>
                       <div class="col-12">
                         <label class="form-label" for="quantite">Quantite</label>
-                        <input class="form-control" id="quantite"  name="quantite" type="text" placeholder="Mobile Essos" required>
+                        <input class="form-control" id="quantite"  name="quantite" type="number" placeholder="0" required>
                       </div>
                       <div class="col-12">
                         <br>
-                        <button class="btn bg-danger " type="button" data-bs-dismiss="modal">Annuler </button>
+                        <button class="btn bg-danger" type="button" data-bs-dismiss="modal">Annuler </button>
 
                         <button class="btn btn-primary" type="button" id="submitMe" >Ajouter</button>
                          
@@ -876,40 +876,32 @@
     console.log(table_body)
 
     var product_list = {}
+    const product_select = document.getElementById('product_list')
 
     
     fetch(`${url_base}/produit/`, {
       method: "GET", 
       mode: "cors", 
-      // origin: "http://127.0.0.1:5500"
+      // origin: "  "
+
     }).then((data)=>{
         console.log("data", data.json().then((res)=>{
-          console.log('res:', res) 
-          const product_select = document.getElementById('product_list')
-          res.forEach((item)=>{ 
-            product_select.innerHTML += `
-               <option value="${item.nom}" data-value="${item.id}">   
-             `
-             //.innerHTML+=``
-            // table_body.appendChild(rowItem)
-            // ${item['nom']} 
-          }) 
-          var data = {}; 
-$("#product_list").each(function(i,el) {  
-  //  data[]
-  $(el).data("label",$(el).val())
-});
-// `data` : object of `data-value` : `value`
-console.log(data, $("#product_list").val());
-
-
-    $('#submitMe').click(function()
-    {
-        var value = $('#product').val();
-        alert($('#product_list [value="' + value + '"]').data('value'));
-    });
-
-        }
+            console.log('res:', res) 
+            
+            res.forEach((item)=>{ 
+              product_select.innerHTML += `
+                <option value="${item.nom}" data-value="${item.id}" data-price="${item.prix}">    </option>
+              ` 
+            }) 
+            console.log(data)
+            // var data = {}; 
+            $("#product_list").each(function(i,el) {  
+              //  data[]
+              $(el).data("label",$(el).val())
+            });
+            // `data` : object of `data-value` : `value`
+            console.log(data, $("#product_list").val()); 
+          }
         ));
     })
     .catch((err)=>{
@@ -923,12 +915,11 @@ console.log(data, $("#product_list").val());
           $("#product-table").jsGrid("option", "data").forEach(function(item) {
             jsGridData.push(JSON.stringify(item))
           });
-          formData.append("products", jsGridData);
-
-
-
-        console.log(formData);
-        window.location.href="invoice-template.html";
+          formData.append("products", jsGridData); 
+          console.log(formData);
+          // alert(formData)
+        
+        window.location.href="invoice-template.html?id=5";
       }
 
 
@@ -1027,32 +1018,50 @@ $(function() {
         // Implement your logic here to perform a POST request with the updated item data
         console.log("Updated item:", item);
       }
-    },
+    },  
     fields: [
-    { name: "ID", type: "number", width: 10, readOnly:true },
-    { name: "Produit", type: "text", width: 60 },
-    { name: "Quantite", type: "number", width: 10 }, 
-      { name: "Prix Unitaire", type: "number", width: 10 },
-      { name: "Observation", type: "text", width: 60 }, 
+    { name: "ID", title:"No",  type: "number", width: 10, readOnly:true },
+    { name: "produit", title: "Designation", type: "text", width: 60 },
+    { name: "quantite",title: "Quantite", type: "number", width: 10 }, 
+    { name: "price",title: "Prix Unitaire", type: "number", width: 10 },
+    { name: "id", title: "product_id", type: "text", visible:false, width: 60 }, 
+    { name: "observation", title: "observation", type: "text", visible:false, width: 60 }, 
       
       { type: "control", 
       // width: 100,
        headerTemplate: function() { return getCustomInsertHeader("product-table") },
-       insertTemplate: function() { return getCustomInsertControls("product-table") },
-       editButton: true,
+      //  insertTemplate: function() { return getCustomInsertControls("product-table") },
+        editButton: true,
         editButtonTooltip: "Edit",
         updateButton: true,
         updateButtonTooltip: "Update",
-        insertButton: true, // Add "Add" button for inserting new rows
+        // insertButton: true, // Add "Add" button for inserting new rows
         // insertButtonTooltip: "Add",
    }
     ]
   });
-  // $("#product-table").on("keypress", function(event) {
+  // $("#submitMe").on("click", function(event) {
   //   if (event.keyCode === 13) { // 13 is the key code for Enter
   //     $("#product-table").jsGrid("insertItem"); // Trigger item insertion on Enter key press
   //   }
   // });
+
+
+  $('#submitMe').click(function()
+            {
+              
+              var value = $('#product').val();
+              var quantity = $('#quantite').val();
+              var id=$('#product_list [value="' + value + '"]').data('value')
+              var price=$('#product_list [value="' + value + '"]').data('price')
+                // alert($('#product_list [value="' + value + '"]').data('price'));
+                $("#product-table").jsGrid("insertItem",{id:id, produit:value, quantite:quantity, price:price, observatiom:'RAS'});
+                $('#product').val('')
+                $('#quantite').val('')
+                $('#exampleModal').modal('hide') 
+            });
+
+
 });
 
     </script>
