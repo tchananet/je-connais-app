@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <meta name="description" content="Mofi admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Mofi admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
@@ -355,6 +356,9 @@
                       <li><a class="submenu-title" href="javascript:void(0)">Formulaire<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
                         <ul class="nav-sub-childmenu submenu-content">
                           <li><a href="form-validation.html">Facturation</a></li>
+                          <li><a href="jsgrid-table-2.html">Brouillage de Caisse</a></li>
+                          <li><a href="jsgrid-table-3.html">Brouillage de Caisse</a></li>
+
                           <!-- <li><a href="base-input.html">Base Inputs</a></li>
                           <li><a href="radio-checkbox-control.html">Checkbox & Radio</a></li>
                           <li><a href="input-group.html">Input Groups</a></li>
@@ -664,7 +668,10 @@
                       <h4>Total Ventes</h4>
                       <div class="dropdown icon-dropdown">
                         <button class="btn dropdown-toggle" id="userdropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown"><a class="dropdown-item" href="#">Semaine</a><a class="dropdown-item" href="#">Mois</a><a class="dropdown-item" href="#">Annee</a></div>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown">
+                          <a class="dropdown-item" id="sales-weekly" href="#">Jour</a>
+                          <a class="dropdown-item" id="sales-month" href="#">Semaine</a>
+                          <a class="dropdown-item" id="sales-year" href="#">Mois</a></div>
                       </div>
                     </div>
                   </div>
@@ -673,12 +680,12 @@
                       <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/icon/coin1.png" alt="icon"></div>
                       <div class="flex-grow-1">
                         <div class="d-flex align-items-center gap-2"> 
-                          <h2>12,463</h2>
+                          <h2 id="sales">150.000 FCFA</h2>
                           <div class="d-flex total-icon">
-                            <p class="mb-0 up-arrow bg-light-success"><i class="fa fa-arrow-up text-success"></i></p><span class="f-w-500 font-success">+ 20.08% </span>
+                            <!-- <p class="mb-0 up-arrow bg-light-success"><i class="fa fa-arrow-up text-success"></i></p><span class="f-w-500 font-success">+ 20.08% </span> -->
                           </div>
                         </div>
-                        <p class="text-truncate">Pour la semaine</p>
+                        <p class="text-truncate-sales" id="sales-period">Depuis ce matin</p>
                       </div>
                     </div>
                     <!-- <div id="admissionRatio"></div> -->
@@ -690,10 +697,14 @@
                 <div class="card">
                   <div class="card-header card-no-border pb-0">
                     <div class="header-top daily-revenue-card">
-                      <h4>Total Sortie</h4>
+                      <h4>Total Sorties</h4>
                       <div class="dropdown icon-dropdown">
                         <button class="btn dropdown-toggle" id="userdropdown2" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown2"><a class="dropdown-item" href="#">Semaine</a><a class="dropdown-item" href="#">Mois</a><a class="dropdown-item" href="#">Annee</a></div>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown2">
+                          <a class="dropdown-item" id="buy-weekly" href="#">Jour</a>
+                          <a class="dropdown-item" id="buy-month" href="#">Semaine</a>
+                          <a class="dropdown-item" id="buy-year" href="#">Mois</a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -702,12 +713,12 @@
                       <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/icon/shopping1.png" alt="icon"></div>
                       <div class="flex-grow-1">
                         <div class="d-flex align-items-center gap-2"> 
-                          <h2>78,596</h2>
+                          <h2 id="buys">78.000 FCFA</h2>
                           <div class="d-flex total-icon">
-                            <p class="mb-0 up-arrow bg-light-danger"><i class="fa fa-arrow-up text-danger"></i></p><span class="f-w-500 font-danger">- 10.02%</span>
+                            <!-- <p class="mb-0 up-arrow bg-light-danger"><i class="fa fa-arrow-up text-danger"></i></p><span class="f-w-500 font-danger">- 10.02%</span> -->
                           </div>
                         </div>
-                        <p class="text-truncate">Compared to Aug 2023</p>
+                        <p class="text-truncate-buy">Depuis ce main</p>
                       </div>
                     </div>
                     <!-- <div id="order-value"></div> -->
@@ -719,10 +730,14 @@
                 <div class="card">
                   <div class="card-header card-no-border pb-0">
                     <div class="header-top daily-revenue-card">
-                      <h4>Situation du jour</h4>
+                      <h4>Situation Net</h4>
                       <div class="dropdown icon-dropdown">
                         <button class="btn dropdown-toggle" id="userdropdown3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown3"><a class="dropdown-item" href="#">Semaine</a><a class="dropdown-item" href="#">Mois</a><a class="dropdown-item" href="#">Annee</a></div>
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown3">
+                          <a class="dropdown-item" id="net-weekly" href="#">Jour</a>
+                          <a class="dropdown-item" id="net-month" href="#">Semaine</a>
+                          <a class="dropdown-item" id="net-year" href="#">Mois</a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -731,12 +746,12 @@
                       <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/icon/sent1.png" alt="icon"></div>
                       <div class="flex-grow-1">
                         <div class="d-flex align-items-center gap-2"> 
-                          <h2>95,789</h2>
+                          <h2 id="net">75.000 FCFA</h2>
                           <div class="d-flex total-icon">
-                            <p class="mb-0 up-arrow bg-light-success"><i class="fa fa-arrow-up text-success"></i></p><span class="f-w-500 font-success">+ 13.23%</span>
+                            <!-- <p class="mb-0 up-arrow bg-light-success"><i class="fa fa-arrow-up text-success"></i></p><span class="f-w-500 font-success">+ 13.23%</span> -->
                           </div>
                         </div>
-                        <p class="text-truncate">Compared to may 2023</p>
+                        <p class="text-truncate-net">Depuis le matin</p>
                       </div>
                     </div>
                     <p><hr></p>
@@ -755,7 +770,7 @@
                 </div>                
                 <div class="card-body common-flex">
                   <a class="btn btn-pill btn-primary btn-lg" type="link" href="form-validation.html" title="btn btn-pill btn-primary btn-lg">Creer Facture</a>
-                  <a class="btn btn-pill btn-secondary btn-lg" type="button" href="jsgrid-table.html" title="">Brouillage de Caisse</a>
+                  <a class="btn btn-pill btn-secondary btn-lg" type="button" href="list-brouillage.html" title="">Brouillage de Caisse</a>
                   <a class="btn btn-pill btn-success btn-lg" type="button" href="list-ventes.html">Gestion de Ventes</a>
                   <a class="btn btn-pill btn-info btn-lg" type="button" href="list-factures.html">Listes de Factures</a>
                   <a class="btn btn-pill btn-warning btn-lg" type="button" href="inventaire.html">Inventaire</a>
@@ -763,34 +778,7 @@
                   <a class="btn btn-pill btn-danger btn-lg" type="button"  href="stock.html">Mouvements Stocks</a>
                  </div>
               </div>
-              <!-- <div class="col-xl-3 col-sm-6"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top daily-revenue-card">
-                      <h4>Daily Revenue</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown4" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown4"><a class="dropdown-item" href="#">Weekly</a><a class="dropdown-item" href="#">Monthly</a><a class="dropdown-item" href="#">Yearly</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body pb-0 total-sells-4">
-                    <div class="d-flex align-items-center gap-3"> 
-                      <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/icon/revenue1.png" alt="icon"></div>
-                      <div class="flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"> 
-                          <h2>41,954</h2>
-                          <div class="d-flex total-icon">
-                            <p class="mb-0 up-arrow bg-light-danger"><i class="fa fa-arrow-up text-danger"></i></p><span class="f-w-500 font-danger">- 17.06%</span>
-                          </div>
-                        </div>
-                        <p class="text-truncate">Compared to july 2023</p>
-                      </div>
-                    </div>
-                    <div id="daily-revenue"></div>
-                  </div>
-                </div>
-              </div> -->
+              
               <div class="col-xxl-8 col-lg-8 col-sm-12"> 
                 <div class="card">
                   <div class="card-header card-no-border pb-0">
@@ -1059,22 +1047,7 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="col-xxl-5 col-xl-4 col-lg-7 col-sm-12"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top">
-                      <h4>Sales Overview</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown6" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown6"><a class="dropdown-item" href="#">Weekly</a><a class="dropdown-item" href="#">Monthly</a><a class="dropdown-item" href="#">Yearly</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body pt-0">
-                    <div id="salse-overview"></div>
-                  </div>
-                </div>
-              </div> -->
+               
               <div class="col-xl-4 col-lg-4 col-sm-6"> 
                 <div class="card">
                   <div class="card-header card-no-border pb-0">
@@ -1099,204 +1072,12 @@
                           <h5>$8282.13</h5>
                           <p>50 min ago</p>
                         </div>
-                      </li>
-                      <li class="d-flex align-items-center gap-2">
-                        <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/2.png" alt=""></div>
-                        <div class="flex-grow-1"><a href="cart.html">
-                            <h5>Yongjae Choi</h5></a>
-                          <p class="text-truncate">ID #95460<span class="text-danger">Pending</span></p>
-                        </div>
-                        <div class="active-status active-online"></div>
-                        <div class="recent-text"> 
-                          <h5>$9546.84 </h5>
-                          <p>34 min ago</p>
-                        </div>
-                      </li>
-                      <li class="d-flex align-items-center gap-2">
-                        <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/3.png" alt=""></div>
-                        <div class="flex-grow-1"><a href="cart.html">
-                            <h5>Seonil Jang</h5></a>
-                          <p class="text-truncate">ID #95468<span class="text-success">Paid</span></p>
-                        </div>
-                        <div class="active-status active-online"></div>
-                        <div class="recent-text"> 
-                          <h5>$2354.16</h5>
-                          <p>30 min ago</p>
-                        </div>
-                      </li>
-                      <li class="d-flex align-items-center gap-2">
-                        <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/4.png" alt=""></div>
-                        <div class="flex-grow-1"><a href="cart.html">
-                            <h5>Joohee Min</h5></a>
-                          <p class="text-truncate">ID #95462<span class="text-danger"> Pending</span></p>
-                        </div>
-                        <div class="active-status active-online"></div>
-                        <div class="recent-text"> 
-                          <h5>$3254.35</h5>
-                          <p>25 min ago</p>
-                        </div>
-                      </li>
-                      <li class="d-flex align-items-center gap-2">
-                        <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/5.png" alt=""></div>
-                        <div class="flex-grow-1"><a href="cart.html">
-                            <h5>Soojung Kin</h5></a>
-                          <p class="text-truncate">ID #34586<span class="text-success">Paid</span></p>
-                        </div>
-                        <div class="active-status active-online"></div>
-                        <div class="recent-text">  
-                          <h5>$3654.32</h5>
-                          <p>23 min ago</p>
-                        </div>
-                      </li>
+                      </li> 
                     </ul>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-lg-5 col-sm-6"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top">
-                      <h4>Ventes Par Produit</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown8" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown8"><a class="dropdown-item" href="#">Semaine</a><a class="dropdown-item" href="#">Mois</a><a class="dropdown-item" href="#">Annee</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body revenue-category">
-                    <div id="pie-chart"></div>
-                    <div class="donut-legend" id="legend"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-7 col-sm-12"> 
-                <div class="card overflow-hidden">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top">
-                      <h4>User by Continent</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown9" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown9"><a class="dropdown-item" href="#">Semaine</a><a class="dropdown-item" href="#">Mois</a><a class="dropdown-item" href="#">Annee</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body user-continent pb-0"> 
-                    <div class="user-map-menu d-flex align-items-center gap-5">
-                      <div class="user-items"> 
-                        <h5>1,506<span>items</span></h5>
-                        <div class="progress">
-                          <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                          <div class="progress-bar bg-tertiary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                      </div>
-                      <div class="map-items"> 
-                        <ul class="d-flex align-items-center gap-3">
-                          <li>
-                            <h5><span class="bg-primary"></span>Keyboard</h5>
-                            <p class="mb-0">651</p>
-                          </li>
-                          <li>
-                            <h5><span class="bg-secondary"></span>Laptops</h5>
-                            <p class="mb-0">345</p>
-                          </li>
-                          <li>
-                            <h5><span class="bg-warning"></span>Desktop</h5>
-                            <p class="mb-0">654</p>
-                          </li>
-                          <li>
-                            <h5><span class="bg-tertiary"></span>Mouse</h5>
-                            <p class="mb-0">954</p>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="contries-sale d-flex gap-4"> 
-                      <div class="map-value"> 
-                        <h5>All Over Contries's Sale</h5>
-                        <ul> 
-                          <li> 
-                            <div class="d-flex gap-2">
-                              <div class="flex-shrink-0">
-                                <svg>
-                                  <use class="fill-primary" href="../assets/svg/icon-sprite.svg#map-loaction"></use>
-                                </svg>
-                              </div>
-                              <div class="flex-grow-1">
-                                <h6>United States</h6>
-                              </div><span>53.23%</span>
-                            </div>
-                          </li>
-                          <li> 
-                            <div class="d-flex gap-2">
-                              <div class="flex-shrink-0">
-                                <svg>
-                                  <use class="fill-secondary" href="../assets/svg/icon-sprite.svg#map-loaction"></use>
-                                </svg>
-                              </div>
-                              <div class="flex-grow-1">
-                                <h6>Romania</h6>
-                              </div><span>31.85%</span>
-                            </div>
-                          </li>
-                          <li> 
-                            <div class="d-flex gap-2"> 
-                              <div class="flex-shrink-0">
-                                <svg>
-                                  <use class="fill-warning" href="../assets/svg/icon-sprite.svg#map-loaction"></use>
-                                </svg>
-                              </div>
-                              <div class="flex-grow-1">
-                                <h6>Austalia</h6>
-                              </div><span>12.98%</span>
-                            </div>
-                          </li>
-                          <li> 
-                            <div class="d-flex gap-2"> 
-                              <div class="flex-shrink-0">
-                                <svg>
-                                  <use class="fill-tertiary" href="../assets/svg/icon-sprite.svg#map-loaction"></use>
-                                </svg>
-                              </div>
-                              <div class="flex-grow-1">
-                                <h6>Germany</h6>
-                              </div><span>45.23%</span>
-                            </div>
-                          </li>
-                          <li>
-                            <div class="d-flex gap-2"> 
-                              <div class="flex-shrink-0">
-                                <svg>
-                                  <use class="fill-success" href="../assets/svg/icon-sprite.svg#map-loaction"></use>
-                                </svg>
-                              </div>
-                              <div class="flex-grow-1">
-                                <h6>Africa</h6>
-                              </div><span>23.15%</span>
-                            </div>
-                          </li>
-                          <li> 
-                            <div class="d-flex gap-2">
-                              <div class="flex-shrink-0">
-                                <svg>
-                                  <use class="fill-danger" href="../assets/svg/icon-sprite.svg#map-loaction"></use>
-                                </svg>
-                              </div>
-                              <div class="flex-grow-1">
-                                <h6>Europe</h6>
-                              </div><span>95.75%</span>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="map">
-                        <div class="jvector-map-height" id="world-map2"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> 
+              
             </div>
           </div>
           <!-- Container-fluid Ends-->
@@ -1375,5 +1156,290 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <!-- Plugin used-->
+    <script>
+      const url = 'http://jenesaispas.chickenkiller.com'
+      const total_path = `${url}/total`
+      $(function() {
+        // "Origin": 
+        var results = {
+            day: {
+              entree: 20000,
+              sortie: 0
+            },
+            week: {
+              entree: 20000,
+              sortie: 15000
+            },
+            month: {
+              entree: 22000,
+              sortie: 16000
+            }
+          };
+          
+        $.get({url :total_path,
+                  "Origin":"http://127.0.0.1:5500" 
+              }
+            ).then((response)=>{
+              console.log(response)
+              results = {
+                day: {
+                  entree: response?.today["vente"],
+                  sortie: response?.today["sorties"]
+                },
+                week: {
+                  entree: response?.week["vente"],
+                  sortie: response?.week["sorties"]
+                },
+                month: {
+                  entree: response?.month["vente"],
+                  sortie: response?.month["sorties"]
+                }
+              };
+              console.log(response?.month)
+              document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+              document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+              document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+
+              const dropMenus = document.querySelectorAll(".dropdown-menu"); 
+              dropMenus.forEach((dropMenu) =>{
+                dropMenu.addEventListener("click", (event)=>{
+                  if (event.target.tagName==='A') {
+                    const itemId = event.target.id;
+                    const itemValue = event.target.textContent;
+                    console.log(itemId, itemValue);
+                    if (itemId.indexOf("sales")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#sales').textContent = `${results.week.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#sales').textContent = `${results.month.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Ce mois`;
+                      }
+                      
+                    }
+
+                    if (itemId.indexOf("buy")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#buys').textContent = `${results.week.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#buys').textContent = `${results.month.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Ce mois`;
+                      }
+                      
+                    }
+                    if (itemId.indexOf("net")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#net').textContent = `${(results.week.entree-results.week.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#net').textContent = `${(results.month.entree-results.month.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Ce mois`;
+                      }
+                      
+                    }
+                    
+                  }
+                })
+              })
+            }).done((stuff)=>{
+              
+            })
+        const values1 = {
+                "today": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "week": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "month": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "year": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                }
+            }
+        
+        
+
+          var recent_clients= [
+            {
+              name: "Aiden Smith",
+              id: '12345',
+              amount: 12000,
+              status: 'Paid',
+              time: '10:05'
+            },
+            {
+              name: "Mia Rodriguez",
+              id: '23456',
+              amount: 9800,
+              status: 'Pending',
+              time: '12:10'
+            },
+            {
+              name: "Liam Brown",
+              id: '34567',
+              amount: 15000,
+              status: 'Paid',
+              time: '09:30'
+            },
+            {
+              name: "Isabella Garcia",
+              id: '45678',
+              amount: 11200,
+              status: 'Pending',
+              time: '13:00'
+            },
+          ]
+        const adding = `
+        <li class="d-flex align-items-center gap-2">
+          <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/1.png" alt=""></div>
+          <div class="flex-grow-1"><a href="cart.html">
+              <h5>${recent_clients[0].name}</h5></a>
+            <p class="text-truncate">ID #${recent_clients[0].id}<span class="text-success">${recent_clients[0].status}</span></p>
+          </div>
+          <div class="active-status active-online"></div>
+          <div class="recent-text"> 
+            <h5>${recent_clients[0].amount} FCFA</h5>
+            <p>${recent_clients[0].time}</p>
+          </div>
+        </li> 
+        `
+
+        var recent = $(".recent-customers");
+        recent_clients.forEach((client)=>{
+          recent.append(`
+        <li class="d-flex align-items-center gap-2">
+          <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/1.png" alt=""></div>
+          <div class="flex-grow-1"><a href="cart.html">
+              <h5>${client.name}</h5></a>
+            <p class="text-truncate">ID #${client.id}<span class="text-success">${client.status}</span></p>
+          </div>
+          <div class="active-status active-online"></div>
+          <div class="recent-text"> 
+            <h5>${client.amount} FCFA</h5>
+            <p>${client.time}</p>
+          </div>
+        </li> 
+        `);
+        })
+        
+
+        document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+        document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+        document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+
+        const dropMenus = document.querySelectorAll(".dropdown-menu"); 
+        dropMenus.forEach((dropMenu) =>{
+          dropMenu.addEventListener("click", (event)=>{
+            if (event.target.tagName==='A') {
+              const itemId = event.target.id;
+              const itemValue = event.target.textContent;
+              console.log(itemId, itemValue);
+              if (itemId.indexOf("sales")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#sales').textContent = `${results.week.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#sales').textContent = `${results.month.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Ce mois`;
+                }
+                
+              }
+
+              if (itemId.indexOf("buy")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#buys').textContent = `${results.week.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#buys').textContent = `${results.month.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Ce mois`;
+                }
+                
+              }
+              if (itemId.indexOf("net")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#net').textContent = `${(results.week.entree-results.week.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#net').textContent = `${(results.month.entree-results.month.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Ce mois`;
+                }
+                
+              }
+              
+            }
+          })
+        })
+        // $.ajax({
+          //   url: "get_data.php",
+          //   method: "POST",
+          //   data: { timePeriod: timePeriod },
+          //   success: function(data) {
+          //     // Update the numbers in the card
+          //     $("#order-value").html(data.total_sales);
+          //     $(".total-icon").html(data.total_icon);
+
+          //     // Update the "depuis ce main" text
+          //     $(".text-truncate").html(data.time_period);
+          //   }
+          // });
+
+          
+          $("#userdropdown2").change(function() {
+          var timePeriod = $(this).val();                    
+        });
+
+
+        $("#userdropdown2").change(function() {
+          var timePeriod = $(this).val();                    
+        });
+      });
+    </script>
   </body>
 </html>

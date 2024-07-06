@@ -29,6 +29,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/jsgrid.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
@@ -654,6 +655,57 @@
         <div class="page-body">
           <!-- Container-fluid starts-->
           <div class="container-fluid">
+
+
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <div class="modal-toggle-wrapper"> 
+                      
+                      <!-- <label class="form-label" for="quantite">Produit</label>
+                      <label for="browser">Choose your browser from the list:</label>
+                      <input list="browsers" name="browser" id="browser">
+                      
+                      <datalist id="browsers">
+                        <option value="Edge">
+                        <option value="Firefox">
+                        <option value="Chrome">
+                        <option value="Opera">
+                        <option value="Safari">
+                      </datalist>   -->
+                      <div class="col-12">
+                        <label class="form-label" for="produit">Produit</label>
+                        <input class="form-control"  list="product_list" name="product" id="product"  placeholder="Choisir le produit" required>
+                        <datalist id="product_list">
+                          <!-- <option value="Edge">
+                          <option value="Firefox">
+                          <option value="Chrome">
+                          <option value="Opera">
+                          <option value="Safari"> -->
+                        </datalist>  
+                      </div>
+                      <div class="col-12">
+                        <label class="form-label" for="quantite">Quantite</label>
+                        <input class="form-control" id="quantite"  name="quantite" type="text" placeholder="Mobile Essos" required>
+                      </div>
+                      <div class="col-12">
+                        <br>
+                        <button class="btn bg-danger " type="button" data-bs-dismiss="modal">Annuler </button>
+
+                        <button class="btn btn-primary" type="button" id="submitMe" >Ajouter</button>
+                         
+                      </div>
+
+
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                        
             <div class="row"> 
 
 
@@ -666,28 +718,28 @@
                   <div class="card-body custom-input">
                     <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm();">
                       <h5>Details du Client</h5>
-                      <div class="col-4"> 
+                      <div class="col-6"> 
                         <label class="form-label" for="first-name">Nom</label>
                         <input class="form-control" id="first-name" name="first-name" type="text" placeholder="First name" aria-label="First name" required>
                       </div>
-                      <div class="col-4"> 
+                      <div class="col-6"> 
                         <label class="form-label" for="last-name">Prenom</label>
                         <input class="form-control" id="last-name" name="last-name" type="text" placeholder="First name" aria-label="First name" required>
                       </div>
-                      <div col-4></div>
-                      <div class="col-8">
+                      <!-- <div col-4></div> -->
+                      <div class="col-12">
                         <label class="form-label" for="address">Address</label>
                         <input class="form-control" id="address"  name="address" type="text" placeholder="Mobile Essos" required>
                       </div>
-                      <div col-4></div>
+                      <!-- <div col-4></div> -->
 
-                      <div class="col-8"> 
+                      <div class="col-12"> 
                         <label class="col-sm-12 col-form-label" for="inputPassword2">Telephone</label>
                         <input class="form-control" id="phone" name="phone" type="number" required>
                       </div>  
-                      <div col-4></div>
+                      <!-- <div col-4></div> -->
 
-                      <div class="col-8"> 
+                      <div class="col-12"> 
                         <div class="card-wrapper border rounded-3 checkbox-checked">
                           <h6 class="sub-title">Moyen de paiement</h6>
                           <div class="radio-form">
@@ -710,10 +762,15 @@
                           </div>
                         </div>
                       </div> 
-                      <div col-4></div>
+                      <!-- <div col-4></div> -->
  
                       
-                      <h5>Produits</h5>
+                      <h5>Produits</h5> 
+
+
+
+                      
+                                
                       <!-- <table class="table table-bordered table-hover" id="tab_logic">
                         <thead>
                             <tr class="row">
@@ -795,6 +852,7 @@
     <!-- Sidebar jquery-->
     <script src="../assets/js/config.js"></script>
     <!-- Plugins JS start-->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="../assets/js/sidebar-menu.js"></script>
     <script src="../assets/js/sidebar-pin.js"></script>
     <script src="../assets/js/slick/slick.min.js"></script>
@@ -812,7 +870,51 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <script>
+      const url_base = 'http://jenesaispas.chickenkiller.com' 
+    // console.log("formdata ", formData);
+    const table_body = document.getElementsByTagName('tbody')[0]
+    console.log(table_body)
 
+    var product_list = {}
+
+    
+    fetch(`${url_base}/produit/`, {
+      method: "GET", 
+      mode: "cors", 
+      // origin: "http://127.0.0.1:5500"
+    }).then((data)=>{
+        console.log("data", data.json().then((res)=>{
+          console.log('res:', res) 
+          const product_select = document.getElementById('product_list')
+          res.forEach((item)=>{ 
+            product_select.innerHTML += `
+               <option value="${item.nom}" data-value="${item.id}">   
+             `
+             //.innerHTML+=``
+            // table_body.appendChild(rowItem)
+            // ${item['nom']} 
+          }) 
+          var data = {}; 
+$("#product_list").each(function(i,el) {  
+  //  data[]
+  $(el).data("label",$(el).val())
+});
+// `data` : object of `data-value` : `value`
+console.log(data, $("#product_list").val());
+
+
+    $('#submitMe').click(function()
+    {
+        var value = $('#product').val();
+        alert($('#product_list [value="' + value + '"]').data('value'));
+    });
+
+        }
+        ));
+    })
+    .catch((err)=>{
+        console.log('err', err);
+    }); 
 
       function validateMyForm() {
         const daForm = document.querySelector("#form1");
@@ -828,6 +930,8 @@
         console.log(formData);
         window.location.href="invoice-template.html";
       }
+
+
        $(document).ready(function(){
       var i=1;
      $("#add_row").click(function(){
@@ -848,8 +952,52 @@
      }); 
 
 }); 
+$(document).ready(function() {
+
+    $('.js-example-basic-single').select2();
+    const product_select = document.getElementById('product_list').innerHTML+=``
+});
+  //  data-toggle="modal" data-target="#exampleModal"
+        function getCustomInsertHeader(gridId) {
+          
+            return $("<button>").attr("type", "button")
+              .attr("data-bs-toggle", "modal")
+              .attr("data-bs-target", "#exampleModal")
+              .text("Ajouter produit")
+              .addClass("btn btn-secondary")
+            .on("click", function() {
+              console.log("asd")
+                $("#" + gridId).jsGrid({ inserting: false });
+            });
+            // <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Simple</button>
+        }
+
+        function getCustomInsertControls(gridId) {
+            var grid = $("#" + gridId).data("JSGrid");
+            return $("<input>")
+              .addClass("jsgrid-button")
+              .addClass("jsgrid-update-button")
+              .attr({
+                  type: "button",
+              })
+              .on("click", function () {
+                  grid.insertItem().done(function () {
+                      grid.option("inserting", false)
+                  });
+              })
+              .add($("<input>")
+              .addClass("jsgrid-button")
+              .addClass("jsgrid-cancel-edit-button")
+              .attr({
+                  type: "button",
+              })
+              .on("click", function () {
+                  grid.option("inserting", false);
+              }));
+        } 
+        
 $(function() {
-      var idCounter = 1;
+  var idCounter = 1;
   $("#product-table").jsGrid({
     width: "100%",
     height: "400px",
@@ -885,24 +1033,26 @@ $(function() {
     { name: "Produit", type: "text", width: 60 },
     { name: "Quantite", type: "number", width: 10 }, 
       { name: "Prix Unitaire", type: "number", width: 10 },
-      { name: "Observation", type: "text", width: 60 },
-
-      {
-        type: "control",
-        editButton: true,
+      { name: "Observation", type: "text", width: 60 }, 
+      
+      { type: "control", 
+      // width: 100,
+       headerTemplate: function() { return getCustomInsertHeader("product-table") },
+       insertTemplate: function() { return getCustomInsertControls("product-table") },
+       editButton: true,
         editButtonTooltip: "Edit",
         updateButton: true,
         updateButtonTooltip: "Update",
         insertButton: true, // Add "Add" button for inserting new rows
-        insertButtonTooltip: "Add",
-      }
+        // insertButtonTooltip: "Add",
+   }
     ]
   });
-  $("#product-table").on("keypress", function(event) {
-    if (event.keyCode === 13) { // 13 is the key code for Enter
-      $("#product-table").jsGrid("insertItem"); // Trigger item insertion on Enter key press
-    }
-  });
+  // $("#product-table").on("keypress", function(event) {
+  //   if (event.keyCode === 13) { // 13 is the key code for Enter
+  //     $("#product-table").jsGrid("insertItem"); // Trigger item insertion on Enter key press
+  //   }
+  // });
 });
 
     </script>
