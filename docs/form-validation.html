@@ -720,43 +720,51 @@
                       <h5>Details du Client</h5>
                       <div class="col-6"> 
                         <label class="form-label" for="first-name">Nom</label>
-                        <input class="form-control" id="first-name" name="first-name" type="text" placeholder="First name" aria-label="First name" required>
+                        <input class="form-control" id="first-name" name="client_nom" type="text" placeholder="First name" aria-label="First name" required>
                       </div>
                       <div class="col-6"> 
                         <label class="form-label" for="last-name">Prenom</label>
-                        <input class="form-control" id="last-name" name="last-name" type="text" placeholder="First name" aria-label="First name" required>
+                        <input class="form-control" id="last-name" name="client_prenom" type="text" placeholder="First name" aria-label="First name" required>
                       </div>
                       <!-- <div col-4></div> -->
                       <div class="col-12">
                         <label class="form-label" for="address">Address</label>
-                        <input class="form-control" id="address"  name="address" type="text" placeholder="Mobile Essos" required>
+                        <input class="form-control" id="address"  name="client_adresse" type="text" placeholder="Mobile Essos" required>
                       </div>
                       <!-- <div col-4></div> -->
+                       <div class="col-12">
+                        <label class="form-label" for="vendeur">Vendeur</label>
+                        <input class="form-control" id="vendeur"  name="vendeur" type="text" placeholder="Mr Ashu" required>
+                      </div>
 
                       <div class="col-12"> 
-                        <label class="col-sm-12 col-form-label" for="inputPassword2">Telephone</label>
-                        <input class="form-control" id="phone" name="phone" type="number" required>
+                        <label class="col-sm-12 col-form-label" for="phone">Telephone</label>
+                        <input class="form-control" id="phone" name="client_telephone" type="number" required>
                       </div>  
                       <!-- <div col-4></div> -->
-
+                      <div class="col-12"> 
+                        <label class="col-sm-12 col-form-label" for="observatiom">Observation</label>
+                        <input class="form-control" id="observatiom" name="observation" type="text" required>
+                      </div>  
+                      
                       <div class="col-12"> 
                         <div class="card-wrapper border rounded-3 checkbox-checked">
                           <h6 class="sub-title">Moyen de paiement</h6>
                           <div class="radio-form">
                             <div class="form-check">
-                              <input class="form-check-input" id="flexRadioDefault1" type="radio" name="payment" value="cash" checked="" required="">
+                              <input class="form-check-input" id="flexRadioDefault1" type="radio" name="moyen_paiement" value="cash" checked="" required="">
                               <label class="form-check-label" for="payment1">Cash</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" id="payment2" type="radio" name="payment" value="om" checked="" required="">
+                              <input class="form-check-input" id="payment2" type="radio" name="moyen_paiement" value="om" checked="" required="">
                               <label class="form-check-label" for="payment2">OM</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" id="payment2" type="radio" name="payment" value="momo" checked="" required="">
+                              <input class="form-check-input" id="payment2" type="radio" name="moyen_paiement" value="momo" checked="" required="">
                               <label class="form-check-label" for="payment2">MoMo</label>
                             </div>
                             <div class="form-check">
-                              <input class="form-check-input" id="payment3" type="radio" name="payment" value="carte" required="">
+                              <input class="form-check-input" id="payment3" type="radio" name="moyen_paiement" value="carte" required="">
                               <label class="form-check-label" for="payment3">Carte</label>
                             </div>
                           </div>
@@ -911,15 +919,45 @@
       function validateMyForm() {
         const daForm = document.querySelector("#form1");
           const formData = new FormData(daForm);
+          var bodyPayload = {}
           var jsGridData = [];
           $("#product-table").jsGrid("option", "data").forEach(function(item) {
-            jsGridData.push(JSON.stringify(item))
+            jsGridData.push(item)
           });
-          formData.append("products", jsGridData); 
-          console.log(formData);
+          // formData.append("produits", jsGridData); 
+          formData.keys().forEach((key) =>bodyPayload[key]= formData.get(key))
+          bodyPayload['produits'] = jsGridData
+          console.log(bodyPayload);
+          // $.post(
+          //   `${url_base}/facture/new`,
+          //   formData
+          //   ).then((item)=>{
+          //     console.log(item);
+          //   }).catch((err)=>{
+          //     console.log("An error has occured: ", err)
+          //   })
+            fetch( `${url_base}/facture/new`, {
+              method:'POST', 
+              body:JSON.stringify(bodyPayload),
+              headers: {
+                  'Content-Type': 'application/json',
+                },
+            }
+            ).then((res)=>{
+              console.log(res.body)
+
+              res.json().then((response)=>{
+                console.log(response)
+                window.location.href="invoice-template.html?id="+response.id;
+              }).catch((free)=>{
+                  res.text().then((text)=>{
+                    console.log(text)
+                  })
+              })
+            })
           // alert(formData)
         
-        window.location.href="invoice-template.html?id=5";
+        
       }
 
 
@@ -1051,11 +1089,11 @@ $(function() {
             {
               
               var value = $('#product').val();
-              var quantity = $('#quantite').val();
+              var quantity = parseInt($('#quantite').val());
               var id=$('#product_list [value="' + value + '"]').data('value')
               var price=$('#product_list [value="' + value + '"]').data('price')
                 // alert($('#product_list [value="' + value + '"]').data('price'));
-                $("#product-table").jsGrid("insertItem",{id:id, produit:value, quantite:quantity, price:price, observatiom:'RAS'});
+                $("#product-table").jsGrid("insertItem",{id:id, produit:value, quantite:quantity, price:price, observation:'RAS'});
                 $('#product').val('')
                 $('#quantite').val('')
                 $('#exampleModal').modal('hide') 
