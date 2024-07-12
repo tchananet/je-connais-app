@@ -502,9 +502,8 @@
     console.log(table_body)
 
     
-    fetch(`${url_base}/facture/`, {
-      method: "GET", 
-      mode: "cors", 
+    fetch(`${url_base}/facture`, {
+      method: "GET",  
       // origin: "http://127.0.0.1:5500"
     }).then((data)=>{;
         console.log("data", data.json().then((res)=>{
