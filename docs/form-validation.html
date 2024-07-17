@@ -925,7 +925,10 @@
             jsGridData.push(item)
           });
           // formData.append("produits", jsGridData); 
-          formData.keys().forEach((key) =>bodyPayload[key]= formData.get(key))
+          for(const pair of formData.entries()){
+            bodyPayload[pair[0]]= pair[1]
+          }
+          // formData.keys().forEach((key) =>bodyPayload[key]= formData.get(key))
           bodyPayload['produits'] = jsGridData
           console.log(bodyPayload);
           // $.post(
