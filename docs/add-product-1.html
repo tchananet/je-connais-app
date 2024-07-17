@@ -504,7 +504,10 @@
             // origin: "http://127.0.0.1:5500"
           }).then((data)=>{
               console.log("data", data);
-              window.location.origin = 'list-products.html'
+              if (data.status==201){
+                window.location.href = 'list-products.html'
+              }
+              
           })
           .catch((err)=>{
               console.log('err', err);
