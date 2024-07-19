@@ -4,12 +4,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
     <meta name="description" content="Mofi admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Mofi admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Mofi - Premium Admin Template</title>
+    <title>Mofi - Admin</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -24,13 +25,18 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
     <!-- Plugins css start-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/jsgrid.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/animate.css">
-    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/jsgrid.css">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/datatables.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/date-picker.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/owlcarousel.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/rating.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/vector-map.css">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/bootstrap.css">
@@ -59,12 +65,11 @@
           <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""/><img class="img-fluid for-dark" src="../assets/images/logo/logo_light.png" alt=""/></a></div>
         </div>
         <div class="col-4 col-xl-4 page-title">
-          <h4 class="f-w-700">Nouvelle Facture</h4>
+          <h4 class="f-w-700"> Dashboard</h4>
           <nav>
             <ol class="breadcrumb justify-content-sm-start align-items-center mb-0">
               <li class="breadcrumb-item"><a href="index.html"> <i data-feather="home"> </i></a></li>
-              <li class="breadcrumb-item f-w-400">Ventes</li>
-              <li class="breadcrumb-item f-w-400 active">Nouvelle Facture</li>
+               <li class="breadcrumb-item f-w-400 active">Acceuil</li>
             </ol>
           </nav>
         </div>
@@ -199,8 +204,8 @@
                  
                 <li class="profile-nav onhover-dropdown px-0 py-0">
                   <div class="d-flex profile-media align-items-center"><img class="img-30" src="../assets/images/dashboard/profile.png" alt="">
-                    <div class="flex-grow-1"><span>Alen Miller</span>
-                      <p class="mb-0 font-outfit">UI Designer<i class="fa fa-angle-down"></i></p>
+                    <div class="flex-grow-1"><span>Patience</span>
+                      <p class="mb-0 font-outfit">Comptable<i class="fa fa-angle-down"></i></p>
                     </div>
                   </div>
                   <ul class="profile-dropdown onhover-show-div">
@@ -354,6 +359,9 @@
                       <li><a class="submenu-title" href="javascript:void(0)">Formulaire<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
                         <ul class="nav-sub-childmenu submenu-content">
                           <li><a href="form-validation.html">Facturation</a></li>
+                          <li><a href="jsgrid-table-2.html">Brouillage de Caisse</a></li>
+                          <li><a href="jsgrid-table-3.html">Brouillage de Caisse</a></li>
+
                           <!-- <li><a href="base-input.html">Base Inputs</a></li>
                           <li><a href="radio-checkbox-control.html">Checkbox & Radio</a></li>
                           <li><a href="input-group.html">Input Groups</a></li>
@@ -654,178 +662,253 @@
         <!-- Page Sidebar Ends-->
         <div class="page-body">
           <!-- Container-fluid starts-->
-          <div class="container-fluid">
-
-
+          <div class="container-fluid dashboard-3">
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <div class="modal-toggle-wrapper"> 
-                      
-                      <!-- <label class="form-label" for="quantite">Produit</label>
-                      <label for="browser">Choose your browser from the list:</label>
-                      <input list="browsers" name="browser" id="browser">
-                      
-                      <datalist id="browsers">
-                        <option value="Edge">
-                        <option value="Firefox">
-                        <option value="Chrome">
-                        <option value="Opera">
-                        <option value="Safari">
-                      </datalist>   -->
-                      <div class="col-12">
-                        <label class="form-label" for="produit">Produit</label>
-                        <input class="form-control"  list="product_list" name="product" id="product"  placeholder="Choisir le produit" required>
-                        <datalist id="product_list">
-                          <!-- <option value="Edge">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="modal-toggle-wrapper"> 
+                        
+                        <!-- <label class="form-label" for="quantite">Produit</label>
+                        <label for="browser">Choose your browser from the list:</label>
+                        <input list="browsers" name="browser" id="browser">
+                        
+                        <datalist id="browsers">
+                          <option value="Edge">
                           <option value="Firefox">
                           <option value="Chrome">
                           <option value="Opera">
-                          <option value="Safari"> -->
-                        </datalist>  
+                          <option value="Safari">
+                        </datalist>   -->
+                        <div class="col-12">
+                          <label class="form-label" for="produit">Produit</label>
+                          <input class="form-control"  list="product_list" name="product" id="product"  placeholder="Choisir le produit" required>
+                          <datalist id="product_list">
+                            <!-- <option value="Edge">
+                            <option value="Firefox">
+                            <option value="Chrome">
+                            <option value="Opera">
+                            <option value="Safari"> -->
+                          </datalist>  
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label" for="quantite">Quantite</label>
+                          <input class="form-control" id="quantite"  name="quantite" type="number" placeholder="0" required>
+                        </div>
+                        <div class="col-12">
+                          <br>
+                          <button class="btn bg-danger" type="button" data-bs-dismiss="modal">Annuler </button>
+  
+                          <button class="btn btn-primary" type="button" id="submitMe" >Ajouter</button>
+                           
+                        </div>
+  
+  
+                        
                       </div>
-                      <div class="col-12">
-                        <label class="form-label" for="quantite">Quantite</label>
-                        <input class="form-control" id="quantite"  name="quantite" type="number" placeholder="0" required>
-                      </div>
-                      <div class="col-12">
-                        <br>
-                        <button class="btn bg-danger" type="button" data-bs-dismiss="modal">Annuler </button>
-
-                        <button class="btn btn-primary" type="button" id="submitMe" >Ajouter</button>
-                         
-                      </div>
-
-
-                      
                     </div>
                   </div>
                 </div>
+              </div> 
+          </div>
+
+          <div class="col-sm-12">
+            <div class="card height-equal">
+              <div class="card-header">
+                <h4>Action</h4>
+                <!-- <p class="mt-1 f-m-light">Use the <code>data-bs-toggle="pill"</code> to tabs pill shape. And mandatory for <code>.active </code> class.</p> -->
               </div>
-            </div>
-                        
-            <div class="row"> 
+              <div class="card-body">
+                <ul class="nav nav-pills nav-primary" id="pills-tab" role="tablist">
+                  <li class="nav-item"><a class="nav-link active" id="pills-aboutus-tab" data-bs-toggle="pill" href="#pills-aboutus" role="tab" aria-controls="pills-aboutus" aria-selected="true">Photocopie</a></li>
+                  <li class="nav-item"><a class="nav-link" id="pills-contactus-tab" data-bs-toggle="pill" href="#pills-contactus" role="tab" aria-controls="pills-contactus" aria-selected="false">Impression</a></li>
+                  <li class="nav-item"><a class="nav-link" id="pills-canal-tab" data-bs-toggle="pill" href="#pills-canal" role="tab" aria-controls="pills-canal" aria-selected="false">CANAL + </a></li>
+                  <li class="nav-item"><a class="nav-link " id="pills-blog-tab" data-bs-toggle="pill" href="#pills-blog" role="tab" aria-controls="pills-blog" aria-selected="false">Blog </a></li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
 
+                    <div class="tab-pane fade  show active" id="pills-aboutus" role="tabpanel" aria-labelledby="pills-aboutus-tab">
+                        <div class="card-body custom-input">
+                            <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm(13);"> 
+                                <div class="col-6">  
+                                    <input class="form-control" id="first-name" name="client_nom" type="text" hidden value="client" required> 
+                                    <input class="form-control" id="last-name" name="client_prenom" type="text" hidden value="client" required> 
+                                    <input class="form-control" id="address"  name="client_adresse" type="text" hidden value="city" required> 
+                                    <input class="form-control" id="vendeur"  name="vendeur" type="text" value="Mr Ashu" hidden required> 
+                                    <input class="form-control" id="phone" name="client_telephone" type="number" hidden value="000000000" required> 
+                                    <input class="form-control" id="payment3" type="text" name="moyen_paiement" value="cash" required="" hidden>
+                                    <input class="form-control" id="observatiom" name="observation" type="text" hidden value="000000000"  required>
+                                </div>  
 
-              <div class="col-xl-10">
-                <div class="card height-equal">
-                  <div class="card-header">
-                    <h4>Facture</h4>
-                    <p class="f-m-light mt-1">
-                   </div>
-                  <div class="card-body custom-input">
-                    <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm();">
-                      <h5>Details du Client</h5>
-                      <div class="col-6"> 
-                        <label class="form-label" for="first-name">Nom</label>
-                        <input class="form-control" id="first-name" name="client_nom" type="text" placeholder="First name" aria-label="First name" required>
-                      </div>
-                      <div class="col-6"> 
-                        <label class="form-label" for="last-name">Prenom</label>
-                        <input class="form-control" id="last-name" name="client_prenom" type="text" placeholder="First name" aria-label="First name" required>
-                      </div>
-                      <!-- <div col-4></div> -->
-                      <div class="col-12">
-                        <label class="form-label" for="address">Address</label>
-                        <input class="form-control" id="address"  name="client_adresse" type="text" placeholder="Mobile Essos" required>
-                      </div>
-                      <!-- <div col-4></div> -->
-                       <div class="col-12">
-                        <label class="form-label" for="vendeur">Vendeur</label>
-                        <input class="form-control" id="vendeur"  name="vendeur" type="text" placeholder="Mr Ashu" required>
-                      </div>
+                                <div class="col-12"> 
+                                    <label class="col-sm-12 col-form-label" for="quantitee">Quantite</label>
+                                    <input class="form-control" id="quantitee" name="quantitee" type="number" required>
+                                </div>  
+                                <div class="col-12"> 
+                                    <label class="col-sm-12 col-form-label" for="prix">Prix</label>
+                                    <input class="form-control" id="prix" name="prix" type="number" required onchange="console.log('asdas')">
+                                </div>  
+                                <div class="col-12"> 
+                                    <label class="col-sm-12 col-form-label" for="total">Total</label>
+                                    <input class="form-control" id="total" name="total" type="number" value="$('#prix').val()" >
+                                </div>   
+                                <div class="col-8">
+                                <button class="btn btn-primary" type="submit">Enregistrer</button>
+                                </div>
+                            </form> 
+                        </div>
+                    
+                     </div>
 
-                      <div class="col-12"> 
-                        <label class="col-sm-12 col-form-label" for="phone">Telephone</label>
-                        <input class="form-control" id="phone" name="client_telephone" type="number" required>
-                      </div>  
-                      <!-- <div col-4></div> -->
-                      <div class="col-12"> 
-                        <label class="col-sm-12 col-form-label" for="observatiom">Observation</label>
-                        <input class="form-control" id="observatiom" name="observation" type="text" required>
-                      </div>  
-                      
-                      <div class="col-12"> 
-                        <div class="card-wrapper border rounded-3 checkbox-checked">
-                          <h6 class="sub-title">Moyen de paiement</h6>
-                          <div class="radio-form">
-                            <div class="form-check">
-                              <input class="form-check-input" id="flexRadioDefault1" type="radio" name="moyen_paiement" value="cash" checked="" required="">
-                              <label class="form-check-label" for="payment1">Cash</label>
+                    <div class="tab-pane fade " id="pills-canal" role="tabpanel" aria-labelledby="pills-canal-tab">
+                        <div class="card-body custom-input">
+                            <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm(13);"> 
+                                <div class="col-6">  
+                                    <input class="form-control" id="first-name" name="client_nom" type="text" hidden value="client" required> 
+                                    <input class="form-control" id="last-name" name="client_prenom" type="text" hidden value="client" required> 
+                                    <input class="form-control" id="address"  name="client_adresse" type="text" hidden value="city" required> 
+                                    <input class="form-control" id="vendeur"  name="vendeur" type="text" value="Mr Ashu" hidden required> 
+                                    <input class="form-control" id="phone" name="client_telephone" type="number" hidden value="000000000" required> 
+                                    <input class="form-control" id="payment3" type="text" name="moyen_paiement" value="cash" required="" hidden>
+                                    <input class="form-control" id="observatiom" name="observation" type="text" hidden value="000000000"  required>
+                                    <input class="form-control" id="quantiteee" name="quantiteee" type="text" hidden value="1"  required>
+                                </div>  
+                                <div class="col-12">
+                                    <label class="form-label" for="produit">Produit</label>
+                                    <input class="form-control"  list="product_list2" name="product" id="product"  placeholder="Choisir le produit" required>
+                                    <datalist id="product_list2"> 
+                                    </datalist>  
+                                </div> 
+                                <div class="col-12"> 
+                                    <label class="col-sm-12 col-form-label" for="prix">Prix</label>
+                                    <input class="form-control" id="prix" name="prix" type="number" required onchange="console.log('asdas')">
+                                </div>  
+                                <div class="col-12"> 
+                                    <label class="col-sm-12 col-form-label" for="total">Total</label>
+                                    <input class="form-control" id="total" name="total" type="number" value="$('#prix').val()" >
+                                </div>   
+                                <div class="col-8">
+                                <button class="btn btn-primary" type="submit">Enregistrer</button>
+                                </div>
+                            </form> 
+                        </div> 
+                     </div>
+
+                  <div class="tab-pane fade" id="pills-contactus" role="tabpanel" aria-labelledby="pills-contactus-tab">
+                    <div class="card-body custom-input">
+                        <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm(13);"> 
+                            <div class="col-6">  
+                                <input class="form-control" id="first-name" name="client_nom" type="text" hidden value="client" required> 
+                                <input class="form-control" id="last-name" name="client_prenom" type="text" hidden value="client" required> 
+                                <input class="form-control" id="address"  name="client_adresse" type="text" hidden value="city" required> 
+                                <input class="form-control" id="vendeur"  name="vendeur" type="text" value="Mr Ashu" hidden required> 
+                                <input class="form-control" id="phone" name="client_telephone" type="number" hidden value="000000000" required> 
+                                <input class="form-control" id="payment3" type="text" name="moyen_paiement" value="cash" required="" hidden>
+                                <input class="form-control" id="observatiom" name="observation" type="text" hidden value="000000000"  required>
+                            </div>  
+
+                            <div class="col-12"> 
+                                <label class="col-sm-12 col-form-label" for="quantitee">Quantite</label>
+                                <input class="form-control" id="quantitee" name="quantitee" type="number" required>
+                            </div>  
+                            <div class="col-12"> 
+                                <label class="col-sm-12 col-form-label" for="prix">Prix</label>
+                                <input class="form-control" id="prix" name="prix" type="number" required onchange="console.log('asdas')">
+                            </div>  
+                            <div class="col-12"> 
+                                <label class="col-sm-12 col-form-label" for="total">Total</label>
+                                <input class="form-control" id="total" name="total" type="number" value="$('#prix').val()" >
+                            </div>   
+                            <div class="col-8">
+                            <button class="btn btn-primary" type="submit">Enregistrer</button>
                             </div>
-                            <div class="form-check">
-                              <input class="form-check-input" id="payment2" type="radio" name="moyen_paiement" value="om" checked="" required="">
-                              <label class="form-check-label" for="payment2">OM</label>
+                        </form> 
+                    </div> 
+                  </div>
+
+                  <div class="tab-pane fade" id="pills-blog" role="tabpanel" aria-labelledby="pills-blog-tab">
+                    <div class="col-xl-10">
+                        <div class="card height-equal">
+                          <div class="card-header">
+                            <h4>Facture</h4>
+                            <p class="f-m-light mt-1">
+                           </div>
+                          <div class="card-body custom-input">
+                            <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm();">
+                              <h5>Details du Client</h5>
+                              <div class="col-6"> 
+                                <label class="form-label" for="first-name">Nom</label>
+                                <input class="form-control" id="first-name" name="client_nom" type="text" placeholder="First name" aria-label="First name" required>
+                              </div>
+                              <div class="col-6"> 
+                                <label class="form-label" for="last-name">Prenom</label>
+                                <input class="form-control" id="last-name" name="client_prenom" type="text" placeholder="First name" aria-label="First name" required>
+                              </div>
+                              <!-- <div col-4></div> -->
+                              <div class="col-12">
+                                <label class="form-label" for="address">Address</label>
+                                <input class="form-control" id="address"  name="client_adresse" type="text" placeholder="Mobile Essos" required>
+                              </div>
+                              <!-- <div col-4></div> -->
+                               <div class="col-12">
+                                <label class="form-label" for="vendeur">Vendeur</label>
+                                <input class="form-control" id="vendeur"  name="vendeur" type="text" placeholder="Mr Ashu" required>
+                              </div>
+        
+                              <div class="col-12"> 
+                                <label class="col-sm-12 col-form-label" for="phone">Telephone</label>
+                                <input class="form-control" id="phone" name="client_telephone" type="number" required>
+                              </div>  
+                              <!-- <div col-4></div> -->
+                              <div class="col-12"> 
+                                <label class="col-sm-12 col-form-label" for="observatiom">Observation</label>
+                                <input class="form-control" id="observatiom" name="observation" type="text" required>
+                              </div>  
+                              
+                              <div class="col-12"> 
+                                <div class="card-wrapper border rounded-3 checkbox-checked">
+                                  <h6 class="sub-title">Moyen de paiement</h6>
+                                  <div class="radio-form">
+                                    <div class="form-check">
+                                      <input class="form-check-input" id="flexRadioDefault1" type="radio" name="moyen_paiement" value="cash" checked="" required="">
+                                      <label class="form-check-label" for="payment1">Cash</label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" id="payment2" type="radio" name="moyen_paiement" value="om" checked="" required="">
+                                      <label class="form-check-label" for="payment2">OM</label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" id="payment2" type="radio" name="moyen_paiement" value="momo" checked="" required="">
+                                      <label class="form-check-label" for="payment2">MoMo</label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" id="payment3" type="radio" name="moyen_paiement" value="carte" required="">
+                                      <label class="form-check-label" for="payment3">Carte</label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>  
+                              <h5>Produits</h5>  
+                            <div class="basic_table text-left" id="product-table"></div> 
+                            <div class="col-8">
+                              <button class="btn btn-primary" type="submit">Enregistrer</button>
                             </div>
-                            <div class="form-check">
-                              <input class="form-check-input" id="payment2" type="radio" name="moyen_paiement" value="momo" checked="" required="">
-                              <label class="form-check-label" for="payment2">MoMo</label>
-                            </div>
-                            <div class="form-check">
-                              <input class="form-check-input" id="payment3" type="radio" name="moyen_paiement" value="carte" required="">
-                              <label class="form-check-label" for="payment3">Carte</label>
-                            </div>
+                            </form>
+                            
                           </div>
                         </div>
-                      </div> 
-                      <!-- <div col-4></div> -->
- 
-                      
-                      <h5>Produits</h5> 
-
-
-
-                      
-                                
-                      <!-- <table class="table table-bordered table-hover" id="tab_logic">
-                        <thead>
-                            <tr class="row">
-                                <th class="text-center">
-                                    #
-                                </th>
-                                <th class="text-center">
-                                    Nom du Produit
-                                </th>
-                                <th class="text-center">
-                                    Quantite
-                                </th>
-                                <th class="text-center" >
-                                    Prix Unitaire
-                                </th> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id='addr0'>
-                                <td>
-                                1
-                                </td>
-                                <td>
-                                <input type="text" name='product0'  placeholder='Produit' class="form-control"/>
-                                </td>
-                                <td>
-                                <input type="number" name='quantity0' placeholder='Quantite' class="form-control"/>
-                                </td>
-                                <td>
-                                <input type="number" name='price0' placeholder='Prix Unitaire' class="form-control"/>
-                                </td>  
-                            </tr>
-                            <tr id='addr1'></tr>
-                        </tbody>
-                    </table> -->
-                    <div class="basic_table text-left" id="product-table"></div> 
-                    <div class="col-8">
-                      <button class="btn btn-primary" type="submit">Enregistrer</button>
+                      </div>
+                    <div class="pt-3 d-flex align-items-center gap-3 pills-blogger"> 
+                      <div class="blog-wrapper"> <img class="blog-img" src="../assets/images/dashboard-2/headphones.png" alt="head-phone"></div>
+                      <div class="blog-content"> 
+                        <p> </p><em class="txt-danger fw-bold">Smart headphones</em>  — also called smart earbuds or hearable — are high-tech in-ear devices that do more than transmit audio. These headphones are usually wireless, and they can sync up with your phone, tablet, computer or other Bluetooth-enabled device. The main appeal of hearables is convenience, as they allow you to complete common tasks without directly accessing your phone or computer. Smart wireless headphones sync up to other devices using Bluetooth technology, and many of their features rely on data from your smartphone or computer.
+                      </div>
                     </div>
-                    </form>
-                    
                   </div>
+                  
                 </div>
               </div>
-
-
- 
             </div>
           </div>
           <!-- Container-fluid Ends-->
@@ -866,19 +949,333 @@
     <script src="../assets/js/slick/slick.min.js"></script>
     <script src="../assets/js/slick/slick.js"></script>
     <script src="../assets/js/header-slick.js"></script>
+    <script src="../assets/js/chart/morris-chart/raphael.js"></script>
+    <script src="../assets/js/chart/morris-chart/morris.js"> </script>
+    <script src="../assets/js/chart/morris-chart/prettify.min.js"></script>
+    <script src="../assets/js/chart/apex-chart/apex-chart.js"></script>
+    <script src="../assets/js/chart/apex-chart/stock-prices.js"></script>
+    <script src="../assets/js/chart/apex-chart/moment.min.js"></script>
+    <script src="../assets/js/chart/echart/pie-chart/facePrint.js"></script>
+    <script src="../assets/js/chart/echart/pie-chart/testHelper.js"></script>
+    <script src="../assets/js/chart/echart/pie-chart/custom-transition-texture.js"></script>
+    <script src="../assets/js/chart/echart/data/symbols.js"></script>
+    <script src="../assets/js/slick/slick.min.js"></script>
+    <script src="../assets/js/slick/slick-theme.js"></script>
+    <script src="../assets/js/vector-map/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="../assets/js/vector-map/map/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="../assets/js/vector-map/map/jquery-jvectormap-us-aea-en.js"></script>
+    <script src="../assets/js/vector-map/map/jquery-jvectormap-uk-mill-en.js"></script>
+    <script src="../assets/js/vector-map/map/jquery-jvectormap-au-mill.js"></script>
+    <script src="../assets/js/vector-map/map/jquery-jvectormap-chicago-mill-en.js"></script>
+    <script src="../assets/js/vector-map/map/jquery-jvectormap-in-mill.js"></script>
+    <script src="../assets/js/vector-map/map/jquery-jvectormap-asia-mill.js"></script>
     <!-- calendar js-->
     <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
     <script src="../assets/js/jsgrid/griddata.js"></script>
     <script src="../assets/js/jsgrid/jsgrid.js"></script>
-
-    <script src="../assets/js/form-validation-custom.js"></script>
-    <script src="../assets/js/height-equal.js"></script>
+    <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
+    <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
+    <script src="../assets/js/datatable/datatables/datatable.custom1.js"></script>
+    <script src="../assets/js/datepicker/date-picker/datepicker.js"></script>
+    <script src="../assets/js/datepicker/date-picker/datepicker.en.js"></script>
+    <script src="../assets/js/datepicker/date-picker/datepicker.custom.js"></script>
+    <script src="../assets/js/rating/jquery.barrating.js"></script>
+    <script src="../assets/js/rating/rating-script.js"></script>
+    <script src="../assets/js/owlcarousel/owl.carousel.js"></script>
+    <script src="../assets/js/vector-map/map-vector.js"></script>
+    <script src="../assets/js/countdown.js"></script>
+    <script src="../assets/js/dashboard/dashboard_3.js"></script>
+    <script src="../assets/js/ecommerce.js"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
+    <!-- Plugin used-->
     <script>
-    const url_base = 'https://jenesaispas.chickenkiller.com' 
+      const url = 'https://jenesaispas.chickenkiller.com'
+      const total_path = `${url}/total`
+      $(function() {
+        // "Origin": 
+        var results = {
+            day: {
+              entree: 20000,
+              sortie: 0
+            },
+            week: {
+              entree: 20000,
+              sortie: 15000
+            },
+            month: {
+              entree: 22000,
+              sortie: 16000
+            }
+          };
+          
+        $.get({url :total_path,
+                  // "Origin":"http://127.0.0.1:5500" 
+              }
+            ).then((response)=>{
+              console.log(response)
+              results = {
+                day: {
+                  entree: response?.today["vente"],
+                  sortie: response?.today["sorties"]
+                },
+                week: {
+                  entree: response?.week["vente"],
+                  sortie: response?.week["sorties"]
+                },
+                month: {
+                  entree: response?.month["vente"],
+                  sortie: response?.month["sorties"]
+                }
+              };
+              console.log(response?.month)
+              document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+              document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+              document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+
+              const dropMenus = document.querySelectorAll(".dropdown-menu"); 
+              dropMenus.forEach((dropMenu) =>{
+                dropMenu.addEventListener("click", (event)=>{
+                  if (event.target.tagName==='A') {
+                    const itemId = event.target.id;
+                    const itemValue = event.target.textContent;
+                    console.log(itemId, itemValue);
+                    if (itemId.indexOf("sales")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#sales').textContent = `${results.week.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#sales').textContent = `${results.month.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Ce mois`;
+                      }
+                      
+                    }
+
+                    if (itemId.indexOf("buy")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#buys').textContent = `${results.week.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#buys').textContent = `${results.month.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Ce mois`;
+                      }
+                      
+                    }
+                    if (itemId.indexOf("net")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#net').textContent = `${(results.week.entree-results.week.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#net').textContent = `${(results.month.entree-results.month.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Ce mois`;
+                      }
+                      
+                    }
+                    
+                  }
+                })
+              })
+            }).done((stuff)=>{
+              
+            })
+        const values1 = {
+                "today": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "week": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "month": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "year": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                }
+            }
+        
+        
+
+          var recent_clients= [
+            {
+              name: "Aiden Smith",
+              id: '12345',
+              amount: 12000,
+              status: 'Paid',
+              time: '10:05'
+            },
+            {
+              name: "Mia Rodriguez",
+              id: '23456',
+              amount: 9800,
+              status: 'Pending',
+              time: '12:10'
+            },
+            {
+              name: "Liam Brown",
+              id: '34567',
+              amount: 15000,
+              status: 'Paid',
+              time: '09:30'
+            },
+            {
+              name: "Isabella Garcia",
+              id: '45678',
+              amount: 11200,
+              status: 'Pending',
+              time: '13:00'
+            },
+          ]
+        const adding = `
+        <li class="d-flex align-items-center gap-2">
+          <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/1.png" alt=""></div>
+          <div class="flex-grow-1"><a href="cart.html">
+              <h5>${recent_clients[0].name}</h5></a>
+            <p class="text-truncate">ID #${recent_clients[0].id}<span class="text-success">${recent_clients[0].status}</span></p>
+          </div>
+          <div class="active-status active-online"></div>
+          <div class="recent-text"> 
+            <h5>${recent_clients[0].amount} FCFA</h5>
+            <p>${recent_clients[0].time}</p>
+          </div>
+        </li> 
+        `
+
+        var recent = $(".recent-customers");
+        recent_clients.forEach((client)=>{
+          recent.append(`
+        <li class="d-flex align-items-center gap-2">
+          <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/1.png" alt=""></div>
+          <div class="flex-grow-1"><a href="cart.html">
+              <h5>${client.name}</h5></a>
+            <p class="text-truncate">ID #${client.id}<span class="text-success">${client.status}</span></p>
+          </div>
+          <div class="active-status active-online"></div>
+          <div class="recent-text"> 
+            <h5>${client.amount} FCFA</h5>
+            <p>${client.time}</p>
+          </div>
+        </li> 
+        `);
+        })
+        
+
+        document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+        document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+        document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+
+        const dropMenus = document.querySelectorAll(".dropdown-menu"); 
+        dropMenus.forEach((dropMenu) =>{
+          dropMenu.addEventListener("click", (event)=>{
+            if (event.target.tagName==='A') {
+              const itemId = event.target.id;
+              const itemValue = event.target.textContent;
+              console.log(itemId, itemValue);
+              if (itemId.indexOf("sales")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#sales').textContent = `${results.week.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#sales').textContent = `${results.month.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Ce mois`;
+                }
+                
+              }
+
+              if (itemId.indexOf("buy")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#buys').textContent = `${results.week.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#buys').textContent = `${results.month.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Ce mois`;
+                }
+                
+              }
+              if (itemId.indexOf("net")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#net').textContent = `${(results.week.entree-results.week.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#net').textContent = `${(results.month.entree-results.month.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Ce mois`;
+                }
+                
+              }
+              
+            }
+          })
+        })
+        // $.ajax({
+          //   url: "get_data.php",
+          //   method: "POST",
+          //   data: { timePeriod: timePeriod },
+          //   success: function(data) {
+          //     // Update the numbers in the card
+          //     $("#order-value").html(data.total_sales);
+          //     $(".total-icon").html(data.total_icon);
+
+          //     // Update the "depuis ce main" text
+          //     $(".text-truncate").html(data.time_period);
+          //   }
+          // });
+
+          
+          $("#userdropdown2").change(function() {
+          var timePeriod = $(this).val();                    
+        });
+
+
+        $("#userdropdown2").change(function() {
+          var timePeriod = $(this).val();                    
+        });
+      });
+      const url_base = 'https://jenesaispas.chickenkiller.com' 
     // console.log("formdata ", formData);
     const table_body = document.getElementsByTagName('tbody')[0]
     console.log(table_body)
@@ -886,7 +1283,21 @@
     var product_list = {}
     const product_select = document.getElementById('product_list')
 
-    
+    var product_list2 = {}
+    const product_select2 = document.getElementById('product_list2')
+
+    const canal_options = [
+        {name:'Access', id:1, prix:5000},
+        {name:'Decouverte', id:2, prix:10000},
+        {name:'Family', id:3, prix:15000}
+
+    ]
+
+    canal_options.forEach((item)=>{ 
+        product_select2.innerHTML += `
+                <option value="${item.name}" data-value="${item.id}" data-price="${item.prix}">    </option>
+              ` 
+            }) 
     fetch(`${url_base}/produit/`, {
       method: "GET", 
       mode: "cors", 
@@ -916,14 +1327,29 @@
         console.log('err', err);
     }); 
 
-      function validateMyForm() {
+      function validateMyForm(product=null) {
         const daForm = document.querySelector("#form1");
           const formData = new FormData(daForm);
           var bodyPayload = {}
           var jsGridData = [];
-          $("#product-table").jsGrid("option", "data").forEach(function(item) {
-            jsGridData.push(item)
-          });
+          if (product=null) {
+            $("#product-table").jsGrid("option", "data").forEach(function(item) {
+                jsGridData.push(item)
+            });
+          } else {
+            jsGridData.push({id:13, quantite:parseInt($('#quantitee').val()), observation:"RAS" })
+          }
+          `
+          {
+            "id": 2,
+            "quantite": 100,
+            "observation": "Produit K"
+
+            var value = $('#product').val();
+              var quantity = parseInt($('#quantite').val());
+        },
+
+          `
           // formData.append("produits", jsGridData); 
           for(const pair of formData.entries()){
             bodyPayload[pair[0]]= pair[1]
@@ -1104,8 +1530,9 @@ $(function() {
 
 
 });
-
+$('#prix').change(()=>{
+    console.log('x')
+})
     </script>
-    <!-- Plugin used-->
   </body>
 </html>

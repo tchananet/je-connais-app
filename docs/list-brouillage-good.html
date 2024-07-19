@@ -62,7 +62,7 @@
           <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""/><img class="img-fluid for-dark" src="../assets/images/logo/logo_light.png" alt=""/></a></div>
         </div>
         <div class="col-4 col-xl-4 page-title">
-          <h4 class="f-w-700">Brouillage de Caisse</h4>
+          <h4 class="f-w-700">Liste de Facture</h4>
           <nav>
             <ol class="breadcrumb justify-content-sm-start align-items-center mb-0">
               <li class="breadcrumb-item"><a href="index.html"> <i data-feather="home"> </i></a></li>
@@ -393,85 +393,13 @@
         <div class="page-body">
           <!-- Container-fluid starts-->
           <div class="container-fluid">
-            
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <div class="modal-toggle-wrapper"> 
-                      <div class="row">
-                          <div class="col-6">
-                            <label class="form-label" for="libelle">Libelle</label>
-                            <input class="form-control"  type="text" name="libelle" id="libelle"  placeholder="Entrer le libelle" required> 
-                        </div>
-                        <div class="col-6">
-                          <label class="form-label" for="tier">Tier</label>
-                          <input class="form-control"  type="text" name="tier" id="tier"  placeholder="Entrer le tier" required> 
-                        </div>
-                        <div class="col-6">
-                          <label class="form-label" for="entree">Entree</label>
-                          <input class="form-control" id="entree"  name="entree" type="number" placeholder="0" required>
-                        </div>
-                        <div class="col-6">
-                          <label class="form-label" for="sortie">Sortie</label>
-                          <input class="form-control" id="sortie"  name="sortie" type="number" placeholder="0" required>
-                        </div>
-                        <div class="col-6">
-                          <label class="form-label" for="solde">Solde</label>
-                          <input class="form-control" id="solde"  name="solde" type="number" placeholder="0" required>
-                        </div>
-                        <div class="col-6">
-                          <label class="form-label" for="observation">Observation</label>
-                          <input class="form-control" id="observation"  name="observation" type="number" placeholder="0" required>
-                        </div>
-                        <div class="col-12">
-                          <br>
-                          <button class="btn bg-danger" type="button" data-bs-dismiss="modal">Annuler </button> &nbsp;
-  
-                          <button class="btn btn-primary" type="button" id="submitMe" >Ajouter</button>
-                           
-                        </div>
-                      </div>
-
-
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-  
-<!-- 
-            '''
-
-            return $("<button>").attr("type", "button")
-              .attr("data-bs-toggle", "modal")
-              .attr("data-bs-target", "#exampleModal")
-              .text("Ajouter produit")
-              .addClass("btn btn-secondary")
-            .on("click", function() {
-              console.log("asd")
-                $("#" + gridId).jsGrid({ inserting: false });
-            });
-
-            ''' -->
-
             <div class="row"> 
               <div class="col-sm-12"> 
                 <div class="card"> 
                   <div class="card-body">
                     <div class="list-product-header">
                       <div> 
-                        <div class="light-box">
-                          <a data-bs-toggle="collapse" href="#collapseProduct" role="button" aria-expanded="false" aria-controls="collapseProduct">
-                            <i class="filter-icon show" data-feather="filter"></i>
-                            <i class="icon-close filter-close hide"></i>
-                          </a>
-                        </div>
-                        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                          <i class="fa fa-plus"></i>
-                          Nouveau Brouillage
-                        </button>
+                        <div class="light-box"><a data-bs-toggle="collapse" href="#collapseProduct" role="button" aria-expanded="false" aria-controls="collapseProduct"><i class="filter-icon show" data-feather="filter"></i><i class="icon-close filter-close hide"></i></a></div><a class="btn btn-primary" href="jsgrid-table-3.html"><i class="fa fa-plus"></i>Nouveau Brouillage</a>
                       </div>
                       <div class="collapse" id="collapseProduct">
                         <div class="card card-body list-product-body">
@@ -498,12 +426,10 @@
                                 <input class="form-check-input checkbox-primary" type="checkbox">
                               </div>
                             </th>
-                            <th> <span class="f-light f-w-600">Date</span></th>
-                            <th> <span class="f-light f-w-600">Libelle</span></th>
-                            <th> <span class="f-light f-w-600">Tiers</span></th>
-                            <th> <span class="f-light f-w-600">Entree</span></th>
-                            <th> <span class="f-light f-w-600">Sortie</span></th>
-                            <th> <span class="f-light f-w-600">Solde</span></th>
+                            <th> <span class="f-light f-w-600">Jour</span></th>
+                            <th> <span class="f-light f-w-600">Solde Debut</span></th>
+                            <th> <span class="f-light f-w-600">Solde Fin</span></th>
+                            <th> <span class="f-light f-w-600">Situation Net du Jour</span></th>
                             <th> <span class="f-light f-w-600">Observations</span></th> 
                           </tr>
                         </thead>
@@ -516,26 +442,20 @@
                             </td>
                             <td> 
                               <div class="product-names">
-                                 <a href="#">18 Juillet 2024 16:39</a>
+                                 <a href="detail-brouillage.html">Apple Desktop 2023</a>
                               </div>
                             </td>
                             <td> 
-                              <a class="f-light">Ouvrir la porte</a>
+                              <a class="f-light">02145YK796</a>
                             </td>
                             <td> 
-                              <a class="f-light">Mme Christelle</a>
-                            </td>
-                            <td> 
-                              <a class="f-light">0</a>
-                            </td>
-                            <td> 
-                              <p class="f-light">50000.00</p>
+                              <p class="f-light">Laptops</p>
                             </td>
                             <td> 
                               <p class="f-light">56000.00</p>
                             </td>
                             <td> 
-                              <p class="f-light">RAS</p>
+                              <p class="f-light">13</p>
                             </td> 
                           </tr>
                         </tbody>
@@ -599,8 +519,6 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script> 
     <script>
-      const baseUrl = 'https://jenesaispas.chickenkiller.com';
-      const table = document.getElementById('list-body')
       var data1 = [
         {
           date:"12/03/2024",
@@ -618,61 +536,15 @@
       }
 
       ] 
-      fetch(`${baseUrl}/brouillardcaisse/`).then((res)=>{
-        console.log('asdasda')
-        res.json().then((response)=>{
-          console.log(response)
-          response.forEach((item)=>{
-            var row = document.createElement('tr')
-            row.setAttribute('class', 'product')
-            row.innerHTML = `
-              <td>
-                <div class="form-check"> 
-                  <input class="form-check-input checkbox-primary" type="checkbox">
-                </div>
-              </td>
-              <td> 
-                <div class="product-names">
-                    <a href="#">${item.date.split("T")[0]}</a>
-                </div>
-              </td>
-              <td> 
-                <a class="f-light">${item.libelle}</a>
-              </td>
-              <td> 
-                <a class="f-light">${item.tiers}</a>
-              </td>
-              <td> 
-                <a class="f-light">${item.entree}</a>
-              </td>
-              <td> 
-                <p class="f-light">${item.sorties}</p>
-              </td>
-              <td> 
-                <p class="f-light">${item.solde}</p>
-              </td>
-              <td> 
-                <p class="f-light">${item.observation}</p>
-              </td> 
-
-            `
-            table.appendChild(row)
-          })
-        })
-      });
     document.addEventListener('DOMContentLoaded', function () {
  
-        // initiateTable(); 
-        
-      });
+        initiateTable(); 
+    });
 
  
     async function initiateTable() {
         
-        const jsonFileData = await fetch(`${baseUrl}/brouillardcaisse`,{
-          method: "GET", 
-      mode: "cors", 
-        });
+        const jsonFileData = await fetch("http://localhost:5000/brouillage/");
         const jsonBody = await jsonFileData.json();
         
 
@@ -742,82 +614,6 @@
 
         return obj
     };
-    $('#submitMe').click(function()
-      {
-        
-        var libelle = $('#libelle').val();
-        var tier = $('#tier').val();
-        var entree = parseInt($('#entree').val());
-        var sortie = parseInt($('#sortie').val());
-        var solde = parseInt($('#solde').val());
-        var observation = $('#observation').val(); 
-        var bodyPayload = {}
-        bodyPayload['numero'] = libelle;
-        bodyPayload['libelles'] = libelle;
-        bodyPayload['tiers'] = tier;
-        bodyPayload['entree'] = entree;
-        bodyPayload['sorties'] = sortie;
-        bodyPayload['solde'] = solde;
-        bodyPayload['observation'] = observation;
-        // bodyPayload['libelle'] = libelle;
-        
-        console.log(bodyPayload)
-        fetch(`${baseUrl}/brouillardcaisse/new`, {
-          body:JSON.stringify(bodyPayload), 
-          method:'POST'
-        }).then((res)=>{
-          console.log(bodyPayload)
-          var response = bodyPayload
-          var row = document.createElement('tr')
-            row.setAttribute('class', 'product')
-            row.innerHTML = `
-              <td>
-                <div class="form-check"> 
-                  <input class="form-check-input checkbox-primary" type="checkbox">
-                </div>
-              </td>
-              <td> 
-                <div class="product-names">
-                    <a href="#">${response.date.split("T")[0]}</a>
-                </div>
-              </td>
-              <td> 
-                <a class="f-light">${response.libelles}</a>
-              </td>
-              <td> 
-                <a class="f-light">${response.tiers}</a>
-              </td>
-              <td> 
-                <a class="f-light">${response.entree}</a>
-              </td>
-              <td> 
-                <p class="f-light">${response.sorties}</p>
-              </td>
-              <td> 
-                <p class="f-light">${response.solde}</p>
-              </td>
-              <td> 
-                <p class="f-light">${response.observation}</p>
-              </td> 
-
-            `
-            table.appendChild(row)
-        })
-          // alert($('#product_list [value="' + value + '"]').data('price'));
-          // $("#product-table").jsGrid("insertItem",{id:id, produit:value, quantite:quantity, price:price, observation:'RAS'});
-
-          $('#libelle').val('')
-          $('#tier').val('')
-          $('#entree').val('')
-          $('#sortie').val('')
-          $('#solde').val('')
-          $('#observation').val('')
-          $('#exampleModal').modal('hide') 
-      });
-      // libelle, tier, entree, sortie, solde, observation
-
-
-// });
       
         
      </script>
