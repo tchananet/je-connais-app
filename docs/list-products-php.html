@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Bless Computers - Gestion des Produits</title>
+    <title>Mofi - Premium Admin Template</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -477,7 +477,7 @@
                             <a class="btn btn-primary" href="add-product-1.html"><i class="fa fa-plus"></i>Add Product</a> 
                           </div>
                           <div class="col"> 
-                            <!-- <label class="visually-hidden" for="searchProduct">Rechercher facture</label> -->
+                            <label class="visually-hidden" for="searchProduct">Rechercher facture</label>
                            <div class="input-group">
                                <button type="submit" class="btn btn-primary">
                                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -499,9 +499,12 @@
                                 <input class="form-check-input checkbox-primary" type="checkbox">
                               </div>
                             </th>
-                            <th> <span class="f-light f-w-600">Produit</span></th> 
+                            <th> <span class="f-light f-w-600">Produit</span></th>
+                            <th> <span class="f-light f-w-600">SKU</span></th>
                             <th> <span class="f-light f-w-600">Categorie</span></th>
-                            <th> <span class="f-light f-w-600">Prix</span></th>  
+                            <th> <span class="f-light f-w-600">Prix</span></th>
+                            <th> <span class="f-light f-w-600">Qte</span></th>
+                            <th> <span class="f-light f-w-600">Stock</span></th> 
                             <th> <span class="f-light f-w-600">Action</span></th>
                           </tr>
                         </thead>
@@ -564,22 +567,22 @@
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
-    <script src="../assets/js/custom/authenticatedRequests.js"></script>
-
     <!-- Plugin used-->
   </body>
   <script>
     
-    // const url_base = 'https://jenesaispas.chickenkiller.com' 
-  const base_url_auth = 'http://sircroco.pythonanywhere.com'
-    const url_base = 'http://sircroco.pythonanywhere.com' 
+    const url_base = 'https://jenesaispas.chickenkiller.com' 
     // console.log("formdata ", formData);
     const table_body = document.getElementsByTagName('tbody')[0]
     console.log(table_body)
-    const response = makeAuthorizedRequest(`${url_base}/facturation-produits/`)
 
-    response.then((data)=>{
-      const res = data
+    
+    fetch(`${url_base}/produit/`, {
+      method: "GET", 
+      mode: "cors", 
+      // origin: "http://127.0.0.1:5500"
+    }).then((data)=>{;
+        console.log("data", data.json().then((res)=>{
           console.log('res:', res)
           
           // table_body.setAttribute('class', 'product-removes')
@@ -592,23 +595,27 @@
                 <input class="form-check-input checkbox-primary" type="checkbox">
               </div>
             </td>
-
             <td> 
-              <div class="product-names"> 
-                <p>${item['designation']}</p>
+              <div class="product-names">
+                <div class="light-product-box"><img class="img-fluid" src="../assets/images/product_list/product-categories/laptop.png" alt="laptop"></div>
+                <p>${item['nom']}</p>
               </div>
-            </td> 
-
-            <td> 
-              <p class="f-light">${item['categorie'].designation}</p>
             </td>
-
+            <td> 
+              <p class="f-light">${item['sku']}</p>
+            </td>
+            <td> 
+              <p class="f-light">${item['catégorie']}</p>
+            </td>
             <td> 
               <p class="f-light">${item['prix']}</p>
-            </td> 
-
-             <td> 
-              <div class="product-action">Supprimer<a type="button" href="add-product.html"> 
+            </td>
+            <td> 
+              <p class="f-light">${item['quantité']}</p>
+            </td>
+            <td> <span class="badge badge-light-secondary">${item['statut']}</span></td> 
+            <td> 
+              <div class="product-action"><a href="add-product.html"> 
                   <svg>    
                     <use href="../assets/svg/icon-sprite.svg#edit-content"></use>
                   </svg></a>
@@ -617,8 +624,13 @@
                 </svg>
               </div>
             </td> `
-            table_body.appendChild(rowItem) 
+            table_body.appendChild(rowItem)
+            
           }) 
+           
+
+        }
+        ));
     })
     .catch((err)=>{
         console.log('err', err);

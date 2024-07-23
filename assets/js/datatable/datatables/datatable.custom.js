@@ -29,10 +29,6 @@
       "searchable": true,
       "pageLength": 4,
     });
-    $('#recent-orders').DataTable({
-      "searchable": true,
-      "pageLength": 4,
-    });
     $("#recent-product").DataTable({
       "searchable": true,
       "paging": false,

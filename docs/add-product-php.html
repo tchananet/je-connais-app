@@ -402,20 +402,23 @@
                   <div class="card-body custom-input">
                     <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm();">
                        <div class="col-8"> 
-                        <label class="form-label" for="designation">Designation</label>
-                        <input class="form-control" id="designation" name="designation" type="text" placeholder="Designation" aria-label="Designation" required>
+                        <label class="form-label" for="nom">Designation</label>
+                        <input class="form-control" id="nom" name="nom" type="text" placeholder="Designation" aria-label="Designation" required>
                       </div> 
                       <div col-4></div>
                       <div class="col-8">
-                        <label class="form-label" for="prix">Prix</label>
-                        <input class="form-control" id="prix"  name="prix" type="number" placeholder="0" required>
-                      </div> 
+                        <label class="form-label" for="prixUnitaire">Prix</label>
+                        <input class="form-control" id="prixUnitaire"  name="prixunitaire" type="number" placeholder="0" required>
+                      </div>
+                      <div col-4></div>
+
+                      <div class="col-8"> 
+                        <label class="col-sm-12 col-form-label" for="stock">Stock</label>
+                        <input class="form-control" id="stock" name="stock" type="number" required>
+                      </div>  
                       <div class="col-8"> 
                         <label class="col-sm-12 col-form-label" for="categorie">categorie</label>
-                        <input class="form-control" id="categorie" list="categorie_list" name="categorie" type="text" required>
-                        <datalist id="categorie_list">
-
-                        </datalist>
+                        <input class="form-control" id="type" name="categorie" type="text" required>
                       </div>  
                       <div col-4></div> 
                     <div class="col-8">
@@ -482,20 +485,22 @@
     <script src="../assets/js/custom/authenticatedRequests.js"></script>
     <script>
 
-    const url_base = 'http://sircroco.pythonanywhere.com'
+    const url_base = 'https://jenesaispas.chickenkiller.com'
 
-    // $.get({url:`${url_base}/facturation-categorie/`}).then((categorie)=>{
-    const response = makeAuthorizedRequest(`${url_base}/facturation-categorie/`)
-    response.then((categorie)=>{
-        const categorie_select = document.getElementById(`categorie_list`)
-        console.log('categorie :', categorie) 
-        categorie.forEach((item)=>{ 
-          categorie_select.innerHTML += `
-            <option value="${item.designation}" data-value="${item.id}">    </option>
+    $.get({url:`${url_base_2}/facturation-cateproduits/${categorie.id}`}).then((categorie)=>{
+        const product_select = document.getElementById(`product_list_${categorie.id}`)
+        console.log('categorie :', categorie)  
+        data = categorie.produits
+        console.log('produits :',  data ) 
+        
+        data.forEach((item)=>{ 
+          product_select.innerHTML += `
+            <option value="${item.designation}" data-value="${item.id}" data-price="${item.prix}">    </option>
           ` 
-        })  
+        }) 
+        console.log(data)
         // var data = {}; 
-        $(`#categorie_list`).each(function(i,el) {  
+        $(`#product_list_${categorie.id}`).each(function(i,el) {  
           //  data[]
           $(el).data("label",$(el).val())
         }); 
@@ -507,25 +512,29 @@
         // const url_base = 'https://127.0.0.1:8000'
        
         const daForm = document.querySelector("#form1");
-        const formData = new FormData(daForm); 
-        const w  = JSON.stringify(Object.fromEntries(formData)); 
-        var bodyPayload = {}
-        for (const pair of formData.entries()){
-          bodyPayload[pair[0]] = pair[1]
-        } 
-        const value = $('#categorie').val()
-        const option = $('#categorie_list').find(`option[value="${value}"]`)
-        const categorie_id = option.data('value')
-        bodyPayload['categorie_id'] = categorie_id
-        console.log(bodyPayload)
-        const request = makeAuthorizedRequest(`${url_base}/facturation-produits/`, 'POST',bodyPayload )
-        request.then((res)=>{
-          console.log(res)
-          if(res.id){
-            window.location.href = 'list-products.html'
-          }
-          // window.location.href = 'list-products.html'
-        }) 
+          const formData = new FormData(daForm); 
+          const w  = JSON.stringify(Object.fromEntries(formData)); 
+          console.log("w ", w);
+          // console.log("formdata ", formData);
+          
+          fetch(`${url_base}/produit/new`, {
+            method: "POST",
+            body:w,
+            headers: {
+              "Content-type": "application/json; charset=UTF-8"
+            },
+            mode: "cors", 
+            // origin: "http://127.0.0.1:5500"
+          }).then((data)=>{
+              console.log("data", data);
+              if (data.status==201){
+                window.location.href = 'list-products.html'
+              }
+              
+          })
+          .catch((err)=>{
+              console.log('err', err);
+          }); 
       }
       
       

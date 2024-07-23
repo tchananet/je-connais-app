@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Ajouter Produit</title>
+    <title>Ajouter Categorie</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -58,12 +58,12 @@
           <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""/><img class="img-fluid for-dark" src="../assets/images/logo/logo_light.png" alt=""/></a></div>
         </div>
         <div class="col-4 col-xl-4 page-title">
-          <h4 class="f-w-700">Ajouter Produit</h4>
+          <h4 class="f-w-700">Ajouter Categorie</h4>
           <nav>
             <ol class="breadcrumb justify-content-sm-start align-items-center mb-0">
               <li class="breadcrumb-item"><a href="index.html"> <i data-feather="home"> </i></a></li>
               <li class="breadcrumb-item f-w-400">Ventes</li>
-              <li class="breadcrumb-item f-w-400 active">Ajouter Produit</li>
+              <li class="breadcrumb-item f-w-400 active">Ajouter Categorie</li>
             </ol>
           </nav>
         </div>
@@ -352,31 +352,9 @@
                     <ul class="sidebar-submenu">
                       <li><a class="submenu-title" href="javascript:void(0)">Formulaire<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
                         <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="form-validation.html">Facturation</a></li>
-                          <!-- <li><a href="base-input.html">Base Inputs</a></li>
-                          <li><a href="radio-checkbox-control.html">Checkbox & Radio</a></li>
-                          <li><a href="input-group.html">Input Groups</a></li>
-                          <li> <a href="input-mask.html">Input Mask</a></li>
-                          <li><a href="megaoptions.html">Mega Options</a></li> -->
+                          <li><a href="form-validation.html">Facturation</a></li> 
                         </ul>
-                      </li>
-                      <!-- <li><a class="submenu-title" href="javascript:void(0)">Form Widgets<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="datepicker.html">Datepicker</a></li>
-                          <li><a href="touchspin.html">Touchspin</a></li>
-                          <li><a href="select2.html">Select2</a></li>
-                          <li><a href="switch.html">Switch</a></li>
-                          <li><a href="typeahead.html">Typeahead</a></li>
-                          <li><a href="clipboard.html">Clipboard</a></li>
-                        </ul>
-                      </li>
-                      <li><a class="submenu-title" href="javascript:void(0)">Form layout<span class="sub-arrow"><i class="fa fa-angle-right"></i></span></a>
-                        <ul class="nav-sub-childmenu submenu-content">
-                          <li><a href="form-wizard.html">Form Wizard 1</a></li>
-                          <li><a href="form-wizard-two.html">Form Wizard 2</a></li>
-                          <li><a href="two-factor.html">Two Factor</a></li>
-                        </ul>
-                      </li> -->
+                      </li> 
                     </ul>
                   </li> 
                   </li>
@@ -396,7 +374,7 @@
               <div class="col-xl-10">
                 <div class="card height-equal">
                   <div class="card-header">
-                    <h4>Ajouter Produit</h4>
+                    <h4>Creer Categorie</h4>
                     <p class="f-m-light mt-1">
                    </div>
                   <div class="card-body custom-input">
@@ -407,16 +385,9 @@
                       </div> 
                       <div col-4></div>
                       <div class="col-8">
-                        <label class="form-label" for="prix">Prix</label>
-                        <input class="form-control" id="prix"  name="prix" type="number" placeholder="0" required>
+                        <label class="form-label" for="description">Description</label>
+                        <input class="form-control" id="description"  name="description" type="text" placeholder="0" required>
                       </div> 
-                      <div class="col-8"> 
-                        <label class="col-sm-12 col-form-label" for="categorie">categorie</label>
-                        <input class="form-control" id="categorie" list="categorie_list" name="categorie" type="text" required>
-                        <datalist id="categorie_list">
-
-                        </datalist>
-                      </div>  
                       <div col-4></div> 
                     <div class="col-8">
                       <button class="btn btn-primary" type="submit">Enregistrer</button>
@@ -482,53 +453,36 @@
     <script src="../assets/js/custom/authenticatedRequests.js"></script>
     <script>
 
-    const url_base = 'http://sircroco.pythonanywhere.com'
-
-    // $.get({url:`${url_base}/facturation-categorie/`}).then((categorie)=>{
-    const response = makeAuthorizedRequest(`${url_base}/facturation-categorie/`)
-    response.then((categorie)=>{
-        const categorie_select = document.getElementById(`categorie_list`)
-        console.log('categorie :', categorie) 
-        categorie.forEach((item)=>{ 
-          categorie_select.innerHTML += `
-            <option value="${item.designation}" data-value="${item.id}">    </option>
-          ` 
-        })  
-        // var data = {}; 
-        $(`#categorie_list`).each(function(i,el) {  
-          //  data[]
-          $(el).data("label",$(el).val())
-        }); 
-        // console.log(data, $(`#product_cat_${categorie.id}`).val());  
-      })
-
 
       function validateMyForm() {
         // const url_base = 'https://127.0.0.1:8000'
-       
+        // const url_base = 'https://jenesaispas.chickenkiller.com'
+        const url_base = 'http://sircroco.pythonanywhere.com'
         const daForm = document.querySelector("#form1");
         const formData = new FormData(daForm); 
-        const w  = JSON.stringify(Object.fromEntries(formData)); 
         var bodyPayload = {}
         for (const pair of formData.entries()){
           bodyPayload[pair[0]] = pair[1]
-        } 
-        const value = $('#categorie').val()
-        const option = $('#categorie_list').find(`option[value="${value}"]`)
-        const categorie_id = option.data('value')
-        bodyPayload['categorie_id'] = categorie_id
-        console.log(bodyPayload)
-        const request = makeAuthorizedRequest(`${url_base}/facturation-produits/`, 'POST',bodyPayload )
-        request.then((res)=>{
-          console.log(res)
-          if(res.id){
-            window.location.href = 'list-products.html'
-          }
-          // window.location.href = 'list-products.html'
+        }
+        const w  = JSON.stringify(Object.fromEntries(formData)); 
+        console.log("w ", w);
+        // console.log("formdata ", formData);
+        const response  = makeAuthorizedRequest(`${url_base}/facturation-categorie/`, 'POST', bodyPayload)
+        console.log(response)
+        response.then((res)=>{
+            console.log(res)
+            if(res.id){
+              $(`#description`).val('')
+              $('#designation').val('') 
+              window.location.href = 'list-categorie.html'
+            }
+            else {
+              alert("Erreur, veiller ressayer")
+            }
+            // window.location.href = 'list-categorie.html'
+            
         }) 
-      }
-      
-      
+      } 
 
     </script>
     <!-- Plugin used-->

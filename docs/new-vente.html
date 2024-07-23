@@ -10,7 +10,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Bless Computers - Acceuil</title>
+    <title>Mofi - Admin</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -25,6 +25,9 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/feather-icon.css">
     <!-- Plugins css start-->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" href="../assets/css/vendors/jsgrid.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/vendors/scrollbar.css">
@@ -543,7 +546,113 @@
                         </div>
                       </div>
                     </div> -->
-                  </li> 
+                  </li>
+                  <!-- <li class="sidebar-main-title">
+                    <div>
+                      <h6>Miscellaneous</h6>
+                    </div>
+                  </li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-gallery"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-gallery"></use>
+                      </svg><span>Gallery</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a href="gallery.html">Gallery Grid</a></li>
+                      <li><a href="gallery-with-description.html">Gallery Grid Desc</a></li>
+                      <li><a href="gallery-masonry.html">Masonry Gallery</a></li>
+                      <li><a href="masonry-gallery-with-disc.html">Masonry with Desc</a></li>
+                      <li><a href="gallery-hover.html">Hover Effects</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-blog"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-blog"></use>
+                      </svg><span>Blog</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a href="blog.html">Blog Details</a></li>
+                      <li><a href="blog-single.html">Blog Single</a></li>
+                      <li><a href="add-post.html">Add Post</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="faq.html">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-faq"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-faq"></use>
+                      </svg><span>FAQ</span></a></li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-job-search"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-job-search"></use>
+                      </svg><span>Job Search</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a href="job-cards-view.html">Cards view</a></li>
+                      <li><a href="job-list-view.html">List View</a></li>
+                      <li><a href="job-details.html">Job Details</a></li>
+                      <li><a href="job-apply.html">Apply</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-learning"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-learning"></use>
+                      </svg><span>Learning</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a href="learning-list-view.html">Learning List</a></li>
+                      <li><a href="learning-detailed.html">Detailed Course</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-maps"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-maps"></use>
+                      </svg><span>Maps</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a href="map-js.html">Maps JS</a></li>
+                      <li><a href="vector-map.html">Vector Maps</a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-editors"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-editors"></use>
+                      </svg><span>Editors</span></a>
+                    <ul class="sidebar-submenu">
+                      <li><a href="summernote.html">Summer Note</a></li>
+                      <li><a href="ckeditor.html">CK editor</a></li>
+                      <li><a href="simple-MDE.html">MDE editor</a></li>
+                      <li><a href="ace-code-editor.html">ACE code editor </a></li>
+                    </ul>
+                  </li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="knowledgebase.html">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-knowledgebase"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-knowledgebase"></use>
+                      </svg><span>Knowledgebase</span></a></li>
+                  <li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title link-nav" href="support-ticket.html">
+                      <svg class="stroke-icon">
+                        <use href="../assets/svg/icon-sprite.svg#stroke-support-tickets"></use>
+                      </svg>
+                      <svg class="fill-icon">
+                        <use href="../assets/svg/icon-sprite.svg#fill-support-tickets"></use>
+                      </svg><span>Support Ticket</span></a></li> -->
                 </ul>
               </div>
               <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
@@ -554,197 +663,100 @@
         <div class="page-body">
           <!-- Container-fluid starts-->
           <div class="container-fluid dashboard-3">
-            <div class="row"> 
-              <div class="col-xl-4 col-sm-6"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top daily-revenue-card">
-                      <h4>Total Ventes</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown">
-                          <a class="dropdown-item" id="sales-weekly" href="#">Jour</a>
-                          <a class="dropdown-item" id="sales-month" href="#">Semaine</a>
-                          <a class="dropdown-item" id="sales-year" href="#">Mois</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body pb-0 total-sells">
-                    <div class="d-flex align-items-center gap-3"> 
-                      <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/icon/coin1.png" alt="icon"></div>
-                      <div class="flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"> 
-                          <h2 id="sales">0 FCFA</h2>
-                          <div class="d-flex total-icon">
-                            <!-- <p class="mb-0 up-arrow bg-light-success"><i class="fa fa-arrow-up text-success"></i></p><span class="f-w-500 font-success">+ 20.08% </span> -->
-                          </div>
-                        </div>
-                        <p class="text-truncate-sales" id="sales-period">Depuis ce matin</p>
-                      </div>
-                    </div>
-                    <!-- <div id="admissionRatio"></div> -->
-                    <p><hr></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-sm-6"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top daily-revenue-card">
-                      <h4>Total Sorties</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown2" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown2">
-                          <a class="dropdown-item" id="buy-weekly" href="#">Jour</a>
-                          <a class="dropdown-item" id="buy-month" href="#">Semaine</a>
-                          <a class="dropdown-item" id="buy-year" href="#">Mois</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body pb-0 total-sells-2">
-                    <div class="d-flex align-items-center gap-3"> 
-                      <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/icon/shopping1.png" alt="icon"></div>
-                      <div class="flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"> 
-                          <h2 id="buys">0 FCFA</h2>
-                          <div class="d-flex total-icon">
-                            <!-- <p class="mb-0 up-arrow bg-light-danger"><i class="fa fa-arrow-up text-danger"></i></p><span class="f-w-500 font-danger">- 10.02%</span> -->
-                          </div>
-                        </div>
-                        <p class="text-truncate-buy">Depuis ce main</p>
-                      </div>
-                    </div>
-                    <!-- <div id="order-value"></div> -->
-                    <p><hr></p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-4 col-sm-6"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top daily-revenue-card">
-                      <h4>Situation Net</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown3" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown3">
-                          <a class="dropdown-item" id="net-weekly" href="#">Jour</a>
-                          <a class="dropdown-item" id="net-month" href="#">Semaine</a>
-                          <a class="dropdown-item" id="net-year" href="#">Mois</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body pb-0 total-sells-3">
-                    <div class="d-flex align-items-center gap-3"> 
-                      <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/icon/sent1.png" alt="icon"></div>
-                      <div class="flex-grow-1">
-                        <div class="d-flex align-items-center gap-2"> 
-                          <h2 id="net">0 FCFA</h2>
-                          <div class="d-flex total-icon">
-                            <!-- <p class="mb-0 up-arrow bg-light-success"><i class="fa fa-arrow-up text-success"></i></p><span class="f-w-500 font-success">+ 13.23%</span> -->
-                          </div>
-                        </div>
-                        <p class="text-truncate-net">Depuis le matin</p>
-                      </div>
-                    </div>
-                    <p><hr></p>
-                    <!-- <div id="daily-value"></div> -->
-                  </div>
-                </div>
-              </div>
 
-            <!-- Actions -->
-
-              <div class="col-xl-12 col-md-12 card">
-                <div class="card-header card-no-border pb-0">
-                  <div class="header-top">
-                    <h4>Actions</h4>
-                   </div>
-                </div>                
-                <div class="card-body common-flex row">
-                  <a class="btn btn-pill btn-primary btn-lg col-lg-3 col-sm-6" type="button" href="facturation-menu.html"  >Enregistrer Vente</a>
-                  <a class="btn btn-pill btn-info btn-lg col-lg-3 col-sm-6" type="button" href="add-sortie.html"  >Enregistrer Sortie</a>
-                  <!-- <a class="btn btn-pill btn-secondary btn-lg  col-lg-3 col-sm-6" type="button" href="list-brouillage.html"  >Brouillage de Caisse</a>  -->
-                  <a class="btn btn-pill btn-danger  btn-lg  col-lg-2 col-sm-6" type="button" href="add-product-1.html" >Liste de produits</a>
-                  <a class="btn btn-pill btn-danger  btn-lg  col-lg-2 col-sm-6" type="button" href="add-categorie.html" >Liste de categories</a>
-                  <!-- <a class="btn btn-pill btn-danger btn-lg  col-3" type="button"  href="stock.html">Mouvements Stocks</a> -->
-                 </div>
-              </div>
-              
-              <!-- Recent sales -->
-              <div class="col-xxl-6 col-lg-6 col-sm-12"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top">
-                      <h4>Ventes Recentes</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown5" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown5"><a class="dropdown-item" href="#">Weekly</a><a class="dropdown-item" href="#">Monthly</a><a class="dropdown-item" href="#">Yearly</a></div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <div class="modal-toggle-wrapper"> 
+                        
+                        <!-- <label class="form-label" for="quantite">Produit</label>
+                        <label for="browser">Choose your browser from the list:</label>
+                        <input list="browsers" name="browser" id="browser">
+                        
+                        <datalist id="browsers">
+                          <option value="Edge">
+                          <option value="Firefox">
+                          <option value="Chrome">
+                          <option value="Opera">
+                          <option value="Safari">
+                        </datalist>   -->
+                        <div class="col-12">
+                          <label class="form-label" for="product">Produit</label>
+                          <input class="form-control"  list="product_list" name="product" id="product"  placeholder="Choisir le produit" required>
+                          <datalist id="product_list">
+                            <!-- <option value="Edge">
+                            <option value="Firefox">
+                            <option value="Chrome">
+                            <option value="Opera">
+                            <option value="Safari"> -->
+                          </datalist>  
+                        </div>
+                        <div class="col-12">
+                          <label class="form-label" for="quantite">Quantite</label>
+                          <input class="form-control" id="quantite"  name="quantite" type="number" placeholder="0" required>
+                        </div>
+                        <div class="col-12">
+                          <br>
+                          <button class="btn bg-danger" type="button" data-bs-dismiss="modal">Annuler </button>
+  
+                          <button class="btn btn-primary" type="button" id="submitMe" >Ajouter</button>
+                           
+                        </div>
+  
+  
+                        
                       </div>
-                    </div>
-                  </div>
-                  <div class="card-body pt-0 recent-orders px-0">
-                    <div class="table-responsive theme-scrollbar">
-                      <table class="table display" id="recent-orders" style="width:100%">
-                        <thead>
-                          <tr>
-                            <th>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label"></label>
-                              </div>
-                            </th>
-                            <th>Produit</th>
-                            <th>Date - Heure</th>
-                            <th>Quantite</th>
-                            <th>Montant</th> 
-                          </tr>
-                        </thead>
-                        <tbody id="recent-orders-body"> 
-                        </tbody>
-                      </table>
                     </div>
                   </div>
                 </div>
               </div> 
+          </div>
 
-              <!-- Recent expenses -->
-              <div class="col-xxl-6 col-lg-6 col-sm-12"> 
-                <div class="card">
-                  <div class="card-header card-no-border pb-0">
-                    <div class="header-top">
-                      <h4>Sortie Recentes</h4>
-                      <div class="dropdown icon-dropdown">
-                        <button class="btn dropdown-toggle" id="userdropdown5" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="icon-more-alt"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown5"><a class="dropdown-item" href="#">Weekly</a><a class="dropdown-item" href="#">Monthly</a><a class="dropdown-item" href="#">Yearly</a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body pt-0 recent-orders px-0">
-                    <div class="table-responsive theme-scrollbar">
-                      <table class="table display" id="recent-expenses" style="width:100%">
-                        <thead>
-                          <tr>
-                            <th>
-                              <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <label class="form-check-label"></label>
-                              </div>
-                            </th>
-                            <th>Libelle</th>
-                            <th>Tiers</th>
-                            <th>Montant</th> 
-                            <th>Date - Heure</th> 
-                          </tr>
-                        </thead>
-                        <tbody id="recent-expenses-body"> 
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div> 
+          <div class="col-sm-12">
+            <div class="card height-equal">
+              <div class="card-header">
+                <h4>Enregistrer vente</h4>
+                <!-- <p class="mt-1 f-m-light">Use the <code>data-bs-toggle="pill"</code> to tabs pill shape. And mandatory for <code>.active </code> class.</p> -->
+              </div>
+              <div class="card-body"> 
+
+                    <div class="tab-pane fade  show active" id="pills-aboutus" role="tabpanel" aria-labelledby="pills-aboutus-tab"> 
+ 
+                        <div class="card-body custom-input">
+                            <form class="row g-3" id="form1" onsubmit="event.preventDefault(); validateMyForm(13);"> 
+                                <div class="col-6">  
+                                    <input class="form-control" id="first-name" name="client_nom" type="text" hidden value="client" required> 
+                                    <input class="form-control" id="last-name" name="client_prenom" type="text" hidden value="client" required> 
+                                    <input class="form-control" id="address"  name="client_adresse" type="text" hidden value="city" required> 
+                                    <input class="form-control" id="vendeur"  name="vendeur" type="text" value="Mr Ashu" hidden required> 
+                                    <input class="form-control" id="phone" name="client_telephone" type="number" hidden value="000000000" required> 
+                                    <input class="form-control" id="payment3" type="text" name="moyen_paiement" value="cash" required="" hidden>
+                                    <input class="form-control" id="observatiom" name="observation" type="text" hidden value="000000000"  required>
+                                    <!-- <input class="form-control" id="quantiteee" name="quantiteee" type="text" hidden value="1"  required> -->
+                                </div>  
+                                <div class="col-12">
+                                    <label class="form-label" for="produit">Produit</label>
+                                    <input class="form-control"  list="product_list2" name="produit" id="produit"  placeholder="Choisir le produit" required>
+                                    <datalist id="product_list2"> 
+                                    </datalist>  
+                                </div> 
+                                <div class="col-12"> 
+                                    <label class="col-sm-12 col-form-label" for="prix">Prix</label>
+                                    <input class="form-control" id="prix" name="prix" type="number" required onchange="console.log('asdas')">
+                                </div>  
+                                <div class="col-12"> 
+                                    <label class="col-sm-12 col-form-label" for="quantitee">Quantite</label>
+                                    <input class="form-control" id="quantitee" value="1" name="quantitee" type="number" >
+                                </div>   
+                                <div class="col-8">
+                                    <button class="btn btn-primary" type="submit">Enregistrer</button>
+                                </div>
+                            </form> 
+                        </div>  
+                    
+                     </div>  
+              </div>
             </div>
           </div>
           <!-- Container-fluid Ends-->
@@ -779,6 +791,7 @@
     <!-- Sidebar jquery-->
     <script src="../assets/js/config.js"></script>
     <!-- Plugins JS start-->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="../assets/js/sidebar-menu.js"></script>
     <script src="../assets/js/sidebar-pin.js"></script>
     <script src="../assets/js/slick/slick.min.js"></script>
@@ -805,6 +818,9 @@
     <script src="../assets/js/vector-map/map/jquery-jvectormap-in-mill.js"></script>
     <script src="../assets/js/vector-map/map/jquery-jvectormap-asia-mill.js"></script>
     <!-- calendar js-->
+    <script src="../assets/js/jsgrid/jsgrid.min.js"></script>
+    <script src="../assets/js/jsgrid/griddata.js"></script>
+    <script src="../assets/js/jsgrid/jsgrid.js"></script>
     <script src="../assets/js/datatable/datatables/jquery.dataTables.min.js"></script>
     <script src="../assets/js/datatable/datatables/datatable.custom.js"></script>
     <script src="../assets/js/datatable/datatables/datatable.custom1.js"></script>
@@ -823,9 +839,557 @@
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
     <!-- Plugin used-->
-     <script src="../assets/js//custom/dashboard.js"></script>
     <script>
+      const url = 'https://jenesaispas.chickenkiller.com'
+      const total_path = `${url}/total`
+      $(function() {
+        // "Origin": 
+        var results = {
+            day: {
+              entree: 20000,
+              sortie: 0
+            },
+            week: {
+              entree: 20000,
+              sortie: 15000
+            },
+            month: {
+              entree: 22000,
+              sortie: 16000
+            }
+          };
+          
+        $.get({url :total_path,
+                  // "Origin":"http://127.0.0.1:5500" 
+              }
+            ).then((response)=>{
+              console.log(response)
+              results = {
+                day: {
+                  entree: response?.today["vente"],
+                  sortie: response?.today["sorties"]
+                },
+                week: {
+                  entree: response?.week["vente"],
+                  sortie: response?.week["sorties"]
+                },
+                month: {
+                  entree: response?.month["vente"],
+                  sortie: response?.month["sorties"]
+                }
+              };
+              console.log(response?.month)
+              document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+              document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+              document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+
+              const dropMenus = document.querySelectorAll(".dropdown-menu"); 
+              dropMenus.forEach((dropMenu) =>{
+                dropMenu.addEventListener("click", (event)=>{
+                  if (event.target.tagName==='A') {
+                    const itemId = event.target.id;
+                    const itemValue = event.target.textContent;
+                    console.log(itemId, itemValue);
+                    if (itemId.indexOf("sales")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#sales').textContent = `${results.week.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#sales').textContent = `${results.month.entree.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-sales').textContent = `Ce mois`;
+                      }
+                      
+                    }
+
+                    if (itemId.indexOf("buy")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#buys').textContent = `${results.week.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#buys').textContent = `${results.month.sortie.toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-buy').textContent = `Ce mois`;
+                      }
+                      
+                    }
+                    if (itemId.indexOf("net")>-1 ) {
+                      if (itemValue==="Jour") {
+                        document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Aujourd'hui`;
+                        
+                      }
+                      if (itemValue==="Semaine") {
+                        document.querySelector('h2#net').textContent = `${(results.week.entree-results.week.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Cette semaine`;
+                      }
+                      if (itemValue==="Mois") {
+                        document.querySelector('h2#net').textContent = `${(results.month.entree-results.month.sortie).toLocaleString()} FCFA`;
+                        document.querySelector('.text-truncate-net').textContent = `Ce mois`;
+                      }
+                      
+                    }
+                    
+                  }
+                })
+              })
+            }).done((stuff)=>{
+              
+            })
+        const values1 = {
+                "today": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "week": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "month": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                },
+                "year": {
+                    "Total vente": 0,
+                    "Total sorties": 0,
+                    "Situation net": 0
+                }
+            }
+        
+        
+
+          var recent_clients= [
+            {
+              name: "Aiden Smith",
+              id: '12345',
+              amount: 12000,
+              status: 'Paid',
+              time: '10:05'
+            },
+            {
+              name: "Mia Rodriguez",
+              id: '23456',
+              amount: 9800,
+              status: 'Pending',
+              time: '12:10'
+            },
+            {
+              name: "Liam Brown",
+              id: '34567',
+              amount: 15000,
+              status: 'Paid',
+              time: '09:30'
+            },
+            {
+              name: "Isabella Garcia",
+              id: '45678',
+              amount: 11200,
+              status: 'Pending',
+              time: '13:00'
+            },
+          ]
+        const adding = `
+        <li class="d-flex align-items-center gap-2">
+          <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/1.png" alt=""></div>
+          <div class="flex-grow-1"><a href="cart.html">
+              <h5>${recent_clients[0].name}</h5></a>
+            <p class="text-truncate">ID #${recent_clients[0].id}<span class="text-success">${recent_clients[0].status}</span></p>
+          </div>
+          <div class="active-status active-online"></div>
+          <div class="recent-text"> 
+            <h5>${recent_clients[0].amount} FCFA</h5>
+            <p>${recent_clients[0].time}</p>
+          </div>
+        </li> 
+        `
+
+        var recent = $(".recent-customers");
+        recent_clients.forEach((client)=>{
+          recent.append(`
+        <li class="d-flex align-items-center gap-2">
+          <div class="flex-shrink-0"><img src="../assets/images/dashboard-3/user/1.png" alt=""></div>
+          <div class="flex-grow-1"><a href="cart.html">
+              <h5>${client.name}</h5></a>
+            <p class="text-truncate">ID #${client.id}<span class="text-success">${client.status}</span></p>
+          </div>
+          <div class="active-status active-online"></div>
+          <div class="recent-text"> 
+            <h5>${client.amount} FCFA</h5>
+            <p>${client.time}</p>
+          </div>
+        </li> 
+        `);
+        })
+        
+
+        document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+        document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+        document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+
+        const dropMenus = document.querySelectorAll(".dropdown-menu"); 
+        dropMenus.forEach((dropMenu) =>{
+          dropMenu.addEventListener("click", (event)=>{
+            if (event.target.tagName==='A') {
+              const itemId = event.target.id;
+              const itemValue = event.target.textContent;
+              console.log(itemId, itemValue);
+              if (itemId.indexOf("sales")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#sales').textContent = `${results.day.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#sales').textContent = `${results.week.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#sales').textContent = `${results.month.entree.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-sales').textContent = `Ce mois`;
+                }
+                
+              }
+
+              if (itemId.indexOf("buy")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#buys').textContent = `${results.day.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#buys').textContent = `${results.week.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#buys').textContent = `${results.month.sortie.toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-buy').textContent = `Ce mois`;
+                }
+                
+              }
+              if (itemId.indexOf("net")>-1 ) {
+                if (itemValue==="Jour") {
+                  document.querySelector('h2#net').textContent = `${(results.day.entree-results.day.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Aujourd'hui`;
+                  
+                }
+                if (itemValue==="Semaine") {
+                  document.querySelector('h2#net').textContent = `${(results.week.entree-results.week.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Cette semaine`;
+                }
+                if (itemValue==="Mois") {
+                  document.querySelector('h2#net').textContent = `${(results.month.entree-results.month.sortie).toLocaleString()} FCFA`;
+                  document.querySelector('.text-truncate-net').textContent = `Ce mois`;
+                }
+                
+              }
+              
+            }
+          })
+        })
+        // $.ajax({
+          //   url: "get_data.php",
+          //   method: "POST",
+          //   data: { timePeriod: timePeriod },
+          //   success: function(data) {
+          //     // Update the numbers in the card
+          //     $("#order-value").html(data.total_sales);
+          //     $(".total-icon").html(data.total_icon);
+
+          //     // Update the "depuis ce main" text
+          //     $(".text-truncate").html(data.time_period);
+          //   }
+          // });
+
+          
+          $("#userdropdown2").change(function() {
+          var timePeriod = $(this).val();                    
+        });
+
+
+        $("#userdropdown2").change(function() {
+          var timePeriod = $(this).val();                    
+        });
+      });
+      const url_base = 'https://jenesaispas.chickenkiller.com' 
+    // console.log("formdata ", formData);
+    const table_body = document.getElementsByTagName('tbody')[0]
+    console.log(table_body)
+
+    var product_list = {}
+    const product_select = document.getElementById('product_list')
+
+    var product_list2 = {}
+    const product_select2 = document.getElementById('product_list2')
+
+    const canal_options = [
+        {name:'Canal + Access', id:1, prix:5000},
+        {name:'Canal + Decouverte', id:2, prix:10000},
+        {name:'Canal + Family', id:3, prix:15000},
+        {name:'Canal + Complete', id:4, prix:25000},
+        {name:'Impression', id:5, prix:50},
+        {name:'Photocopie', id:6, prix:25},
+
+    ]
+
+    canal_options.forEach((item)=>{ 
+        product_select2.innerHTML += `
+                <option value="${item.name}" data-value="${item.id}" data-price="${item.prix}">    </option>
+              ` 
+            }) 
+    fetch(`${url_base}/produit/`, {
+      method: "GET", 
+      mode: "cors", 
+      // origin: "  "
+
+    }).then((data)=>{
+        console.log("data", data.json().then((res)=>{
+            console.log('res:', res) 
+            
+            res.forEach((item)=>{ 
+              product_select.innerHTML += `
+                <option value="${item.nom}" data-value="${item.id}" data-price="${item.prix}">    </option>
+              ` 
+            }) 
+            console.log(data)
+            // var data = {}; 
+            $("#product_list").each(function(i,el) {  
+              //  data[]
+              $(el).data("label",$(el).val())
+            });
+            // `data` : object of `data-value` : `value`
+            console.log(data, $("#product_list").val()); 
+          }
+        ));
+    })
+    .catch((err)=>{
+        console.log('err', err);
+    }); 
+
+      function validateMyForm(product=null) {
+        const daForm = document.querySelector("#form1");
+        const formData = new FormData(daForm);
+        var bodyPayload = {}
+        var jsGridData = [];
+
+        var value = $('#produit').val();
+        var quantity = parseInt($('#quantitee').val());
+        var id=$('#product_list2 [value="' + value + '"]').data('value')
+        var price=$('#product_list2 [value="' + value + '"]').data('price')
+
+          if (product=null) {
+            $("#product-table").jsGrid("option", "data").forEach(function(item) {
+                jsGridData.push(item)
+            });
+          } else {
+            jsGridData.push({id:id, quantite:parseInt($('#quantitee').val()), observation:"RAS" })
+          }
+          `
+          {
+            "id": 2,
+            "quantite": 100,
+            "observation": "Produit K"
+
+            var value = $('#product').val();
+              var quantity = parseInt($('#quantite').val());
+        },
+
+          `
+          // formData.append("produits", jsGridData); 
+          for(const pair of formData.entries()){
+            bodyPayload[pair[0]]= pair[1]
+          }
+          // formData.keys().forEach((key) =>bodyPayload[key]= formData.get(key))
+          bodyPayload['produits'] = jsGridData
+          console.log(bodyPayload);
+          // $.post(
+          //   `${url_base}/facture/new`,
+          //   formData
+          //   ).then((item)=>{
+          //     console.log(item);
+          //   }).catch((err)=>{
+          //     console.log("An error has occured: ", err)
+          //   })
+            fetch( `${url_base}/facture/new`, {
+              method:'POST', 
+              body:JSON.stringify(bodyPayload),
+              headers: {
+                  'Content-Type': 'application/json',
+                },
+            }
+            ).then((res)=>{
+              console.log(res.body)
+
+              res.json().then((response)=>{
+                console.log(response)
+                window.location.href="invoice-template.html?id="+response.id;
+              }).catch((free)=>{
+                  res.text().then((text)=>{
+                    console.log(text)
+                  })
+              })
+            })
+          // alert(formData)
+        
+        
+      }
+
+
+       $(document).ready(function(){
+      var i=1;
+     $("#add_row").click(function(){
+      console.log(3)
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='produit"+i+
+      "' type='text' placeholder='Produit' class='form-control input-md'  /></td><td><input  name='quantity"+i+
+      "' type='text' placeholder='Quantite'  class='form-control input-md'></td><td><input  name='price"+i+
+      "' type='text' placeholder='Prix Unitaire'  class='form-control input-md'></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++; 
+  });
+     $("#delete_row").click(function(){
+         if(i>1){
+         $("#addr"+(i-1)).html('');
+         i--;
+         }
+     }); 
+
+}); 
+$(document).ready(function() {
+
+    $('.js-example-basic-single').select2();
+    const product_select = document.getElementById('product_list').innerHTML+=``
+});
+  //  data-toggle="modal" data-target="#exampleModal"
+        function getCustomInsertHeader(gridId) {
+          
+            return $("<button>").attr("type", "button")
+              .attr("data-bs-toggle", "modal")
+              .attr("data-bs-target", "#exampleModal")
+              .text("Ajouter produit")
+              .addClass("btn btn-secondary")
+            .on("click", function() {
+              console.log("asd")
+                $("#" + gridId).jsGrid({ inserting: false });
+            });
+            // <button class="btn btn-secondary" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Simple</button>
+        }
+
+        function getCustomInsertControls(gridId) {
+            var grid = $("#" + gridId).data("JSGrid");
+            return $("<input>")
+              .addClass("jsgrid-button")
+              .addClass("jsgrid-update-button")
+              .attr({
+                  type: "button",
+              })
+              .on("click", function () {
+                  grid.insertItem().done(function () {
+                      grid.option("inserting", false)
+                  });
+              })
+              .add($("<input>")
+              .addClass("jsgrid-button")
+              .addClass("jsgrid-cancel-edit-button")
+              .attr({
+                  type: "button",
+              })
+              .on("click", function () {
+                  grid.option("inserting", false);
+              }));
+        } 
+        
+$(function() {
+  var idCounter = 1;
+  $("#product-table").jsGrid({
+    width: "100%",
+    height: "400px",
+    sorting: true,
+    paging: true,
+    editing: true,
+    inserting: true, // Enable inserting
+    autoload: true,
+    controller: {
+      insertItem: function(item) {
+        // Handle insert request
+        // Implement your logic here to perform a POST request with the new item data
+        item.ID = idCounter++;
+         console.log("New item:", item);
+
+         $.post(
+        'http://127.0.0.1:3001/product/',
+        item
+         ).done(()=>{
+          console.log(item);
+        })
+        var insertForm = $("#product-table");
+        insertForm.find("input").val("");
+      },
+      updateItem: function(item) {
+        // Handle update request
+        // Implement your logic here to perform a POST request with the updated item data
+        console.log("Updated item:", item);
+      }
+    },  
+    fields: [
+    { name: "ID", title:"No",  type: "number", width: 10, readOnly:true },
+    { name: "produit", title: "Designation", type: "text", width: 60 },
+    { name: "quantite",title: "Quantite", type: "number", width: 10 }, 
+    { name: "price",title: "Prix Unitaire", type: "number", width: 10 },
+    { name: "id", title: "product_id", type: "text", visible:false, width: 60 }, 
+    { name: "observation", title: "observation", type: "text", visible:false, width: 60 }, 
       
+      { type: "control", 
+      // width: 100,
+       headerTemplate: function() { return getCustomInsertHeader("product-table") },
+      //  insertTemplate: function() { return getCustomInsertControls("product-table") },
+        editButton: true,
+        editButtonTooltip: "Edit",
+        updateButton: true,
+        updateButtonTooltip: "Update",
+        // insertButton: true, // Add "Add" button for inserting new rows
+        // insertButtonTooltip: "Add",
+   }
+    ]
+  });
+  // $("#submitMe").on("click", function(event) {
+  //   if (event.keyCode === 13) { // 13 is the key code for Enter
+  //     $("#product-table").jsGrid("insertItem"); // Trigger item insertion on Enter key press
+  //   }
+  // });
+
+
+  $('#submitMe').click(function()
+            {
+              
+              var value = $('#product').val();
+              var quantity = parseInt($('#quantite').val());
+              var id=$('#product_list [value="' + value + '"]').data('value')
+              var price=$('#product_list [value="' + value + '"]').data('price')
+                // alert($('#product_list [value="' + value + '"]').data('price'));
+                $("#product-table").jsGrid("insertItem",{id:id, produit:value, quantite:quantity, price:price, observation:'RAS'});
+                $('#product').val('')
+                $('#quantite').val('')
+                $('#exampleModal').modal('hide') 
+            });
+
+
+});
+$('#prix').change(()=>{
+    console.log('x')
+})
     </script>
   </body>
 </html>

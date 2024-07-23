@@ -9,7 +9,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="../assets/images/favicon.png" type="image/x-icon">
-    <title>Bless Computers - Gestion des Produits</title>
+    <title>Bless Computers - Categories</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -59,12 +59,12 @@
           <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""/><img class="img-fluid for-dark" src="../assets/images/logo/logo_light.png" alt=""/></a></div>
         </div>
         <div class="col-4 col-xl-4 page-title">
-          <h4 class="f-w-700">Product list</h4>
+          <h4 class="f-w-700">Categories</h4>
           <nav>
             <ol class="breadcrumb justify-content-sm-start align-items-center mb-0">
               <li class="breadcrumb-item"><a href="index.html"> <i data-feather="home"> </i></a></li>
               <li class="breadcrumb-item f-w-400">ECommerce</li>
-              <li class="breadcrumb-item f-w-400 active">Product list</li>
+              <li class="breadcrumb-item f-w-400 active">Categories</li>
             </ol>
           </nav>
         </div>
@@ -474,7 +474,7 @@
                         <!-- <a class="btn btn-primary" href="add-product-1.html"><i class="fa fa-plus"></i>Add Product</a> -->
                         <form class="row row-cols-lg-auto g-3 align-items-center" onsubmit="event.preventDefault()" style="display: flex;flex-direction: row; justify-content: space-between; width: 100%;"> 
                           <div class="col"> 
-                            <a class="btn btn-primary" href="add-product-1.html"><i class="fa fa-plus"></i>Add Product</a> 
+                            <a class="btn btn-primary" href="add-categorie.html"><i class="fa fa-plus"></i>Creer Categorie</a> 
                           </div>
                           <div class="col"> 
                             <!-- <label class="visually-hidden" for="searchProduct">Rechercher facture</label> -->
@@ -484,7 +484,7 @@
                                      <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
                                  </svg> 
                                </button>
-                           <input type="text" class="form-control" id="searchProduct" placeholder="Rechercher un produit">
+                           <input type="text" class="form-control" id="searchProduct" placeholder="Rechercher">
                            </div>
                        </div>
                         </form>
@@ -499,9 +499,8 @@
                                 <input class="form-check-input checkbox-primary" type="checkbox">
                               </div>
                             </th>
-                            <th> <span class="f-light f-w-600">Produit</span></th> 
-                            <th> <span class="f-light f-w-600">Categorie</span></th>
-                            <th> <span class="f-light f-w-600">Prix</span></th>  
+                            <th> <span class="f-light f-w-600">Categorie</span></th> 
+                            <th> <span class="f-light f-w-600">Description</span></th> 
                             <th> <span class="f-light f-w-600">Action</span></th>
                           </tr>
                         </thead>
@@ -564,22 +563,25 @@
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
-    <script src="../assets/js/custom/authenticatedRequests.js"></script>
-
     <!-- Plugin used-->
   </body>
   <script>
     
     // const url_base = 'https://jenesaispas.chickenkiller.com' 
-  const base_url_auth = 'http://sircroco.pythonanywhere.com'
+const base_url_auth = 'http://sircroco.pythonanywhere.com'
     const url_base = 'http://sircroco.pythonanywhere.com' 
     // console.log("formdata ", formData);
     const table_body = document.getElementsByTagName('tbody')[0]
     console.log(table_body)
-    const response = makeAuthorizedRequest(`${url_base}/facturation-produits/`)
 
-    response.then((data)=>{
-      const res = data
+    
+    fetch(`${url_base}/facturation-categorie/`, {
+      // fetch(`${url_base}/produit/`, {
+        method: "GET", 
+      mode: "cors", 
+      // origin: "http://127.0.0.1:5500"
+    }).then((data)=>{;
+        console.log("data", data.json().then((res)=>{
           console.log('res:', res)
           
           // table_body.setAttribute('class', 'product-removes')
@@ -600,15 +602,11 @@
             </td> 
 
             <td> 
-              <p class="f-light">${item['categorie'].designation}</p>
+              <p class="f-light">${item.description}</p>
             </td>
 
-            <td> 
-              <p class="f-light">${item['prix']}</p>
-            </td> 
-
              <td> 
-              <div class="product-action">Supprimer<a type="button" href="add-product.html"> 
+              <div class="product-action">Supprimer<a href="add-product.html"> 
                   <svg>    
                     <use href="../assets/svg/icon-sprite.svg#edit-content"></use>
                   </svg></a>
@@ -617,8 +615,13 @@
                 </svg>
               </div>
             </td> `
-            table_body.appendChild(rowItem) 
+            table_body.appendChild(rowItem)
+            
           }) 
+           
+
+        }
+        ));
     })
     .catch((err)=>{
         console.log('err', err);
