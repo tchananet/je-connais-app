@@ -20,7 +20,7 @@ async function makeAuthorizedRequest(url, method = 'GET', data = null) {
   if (response.ok) {
     return await response.json();
   } else if (response.status = 401){
-    // window.location.href = 'login.html'
+    window.location.href = 'login.html'
     console.log(authToken)
 
   }

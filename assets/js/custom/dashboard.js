@@ -32,6 +32,7 @@ const url = 'https://sircroco.pythonanywhere.com'
 const total_path = `${url}/facturation-net-total`
 const total_path_sorties = `${url}/facturation-sortie`
 const total_path_ventes = `${url}/facturation-vente`
+const logged = makeAuthorizedRequest(`${url}/facturation-net-total`)
 
 
 $(function() {
