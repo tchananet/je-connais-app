@@ -582,7 +582,8 @@ const base_url_auth = 'https://sircroco.pythonanywhere.com'
         method: "GET", 
       mode: "cors", 
       // origin: "http://127.0.0.1:5500"
-    }).then((data)=>{;
+    })
+    makeAuthorizedRequest(`${url_base}/facturation-vente/`).then((data)=>{;
         console.log("data", data.json().then((res)=>{
           console.log('res:', res)
           

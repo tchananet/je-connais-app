@@ -563,6 +563,7 @@
     <!-- Theme js-->
     <script src="../assets/js/script.js"></script>
     <script src="../assets/js/theme-customizer/customizer.js"></script>
+    <script src="../assets/js/custom/authenticatedRequests.js"></script>
     <!-- Plugin used-->
   </body>
   <script>
@@ -575,17 +576,16 @@ const base_url_auth = 'https://sircroco.pythonanywhere.com'
     console.log(table_body)
 
     
-    fetch(`${url_base}/facturation-categorie/`, {
-      // fetch(`${url_base}/produit/`, {
-        method: "GET", 
-      mode: "cors", 
-      // origin: "http://127.0.0.1:5500"
-    }).then((data)=>{;
-        console.log("data", data.json().then((res)=>{
-          console.log('res:', res)
+    // fetch(`${url_base}/facturation-categorie/`, {
+    //   // fetch(`${url_base}/produit/`, {
+    //     method: "GET", 
+    //   mode: "cors", 
+    //   // origin: "http://127.0.0.1:5500"
+    // })
+    makeAuthorizedRequest(`${url_base}/facturation-categorie/`).then((data)=>{ 
           
           // table_body.setAttribute('class', 'product-removes')
-          res.forEach((item)=>{
+          data.forEach((item)=>{
             const rowItem = document.createElement('tr')
             rowItem.setAttribute('class', 'product-removes')
             rowItem.innerHTML = `
@@ -617,12 +617,9 @@ const base_url_auth = 'https://sircroco.pythonanywhere.com'
             </td> `
             table_body.appendChild(rowItem)
             
-          }) 
-           
+          })  
 
-        }
-        ));
-    })
+        } )
     .catch((err)=>{
         console.log('err', err);
     }); 

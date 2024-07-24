@@ -542,7 +542,8 @@
       const url_base = 'https://sircroco.pythonanywhere.com' 
       const url_base_2 = 'https://sircroco.pythonanywhere.com'
       const path_categorie = `${url_base_2}/facturation-categorie`
-      $.get({url:path_categorie}).then((res)=>{
+      const request = makeAuthorizedRequest(path_categorie)
+      request.then((res)=>{
         console.log(res)
         const actions_container = document.getElementById('pills-tab')
         const tabContent = document.getElementById('pills-tabContent')
@@ -580,12 +581,12 @@
                     </datalist>  
                 </div> 
                 <div class="col-12"> 
-                    <label class="col-sm-12 col-form-label" for="quantite">Quantite</label>
-                    <input class="form-control" id="quantite" name="quantite" type="number" required>
+                    <label class="col-sm-12 col-form-label" for="quantite_${categorie.id}">Quantite</label>
+                    <input class="form-control" id="quantite_${categorie.id}" name="quantite" type="number" required>
                 </div>  
                 <div class="col-12"> 
-                    <label class="col-sm-12 col-form-label" for="prix">Prix</label>
-                    <input class="form-control" id="prix" name="prix" type="number" required onchange="console.log('asdas')">
+                    <label class="col-sm-12 col-form-label" for="prix_${categorie.id}">Prix</label>
+                    <input class="form-control" id="prix_${categorie.id}" name="prix" type="number" required onchange="console.log('asdas')">
                 </div>   
                 <div class="col-8">
                 <button class="btn btn-primary" type="submit">Enregistrer</button>
@@ -595,7 +596,9 @@
           `
           tabContent.appendChild(content_row)
 
-          $.get({url:`${url_base_2}/facturation-cateproduits/${categorie.id}`}).then((categorie)=>{
+          // const request = makeAuthorizedRequest(`${url_base_2}/facturation-cateproduits/${categorie.id}`)
+
+          makeAuthorizedRequest(`${url_base_2}/facturation-cateproduits/${categorie.id}`).then((categorie)=>{
             const product_select = document.getElementById(`product_list_${categorie.id}`)
             console.log('categorie :', categorie)  
             data = categorie.produits
@@ -636,8 +639,8 @@
         console.log(res)
         if (res.id) {
           $(`#product_cat_${params}`).val('')
-          $('#quantite').val('')
-          $('#prix').val('') 
+          $(`#quantite_${params}`).val('')
+          $(`#prix_${params}`).val('') 
         }
         else{
           alert("Une erreur est survenue, Veullez patienter et resssayer.")

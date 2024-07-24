@@ -52,10 +52,11 @@ $(function() {
             }
           };
           
-        $.get({url :total_path,
-                  // "Origin":"http://127.0.0.1:5500" 
-              }
-            ).then((response)=>{
+        // $.get({url :total_path,
+        //           // "Origin":"http://127.0.0.1:5500" 
+        //       }
+        //     )
+          makeAuthorizedRequest(total_path).then((response)=>{
               console.log(response)
               results = {
                 day: {
@@ -269,10 +270,11 @@ $(function() {
         </tr>
         `
 
-          $.get({url :total_path_ventes,
-                    // "Origin":"http://127.0.0.1:5500" 
-                }
-            ).then((res)=>{
+          // $.get({url :total_path_ventes,
+          //           // "Origin":"http://127.0.0.1:5500" 
+          //       }
+          //   )
+          makeAuthorizedRequest(total_path_ventes).then((res)=>{
                 console.log(res)  
                 const ventes = res
                     console.log(ventes)
@@ -323,7 +325,9 @@ $(function() {
             "searchable": true,
             "pageLength": 5,
             }); 
-        $.get({url :total_path_sorties}).then((res)=>{
+
+        // $.get({url :total_path_sorties})
+        makeAuthorizedRequest(total_path_sorties).then((res)=>{
             console.log(res)  
             const sorties = res
                 console.log(sorties)
