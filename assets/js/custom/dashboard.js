@@ -26,7 +26,7 @@ async function makeAuthorizedRequest(url, method = 'GET', data = null) {
 
 // const url = 'https://jenesaispas.chickenkiller.com'
 // const url = 'http://127.0.0.1:8000'
-const url = 'http://sircroco.pythonanywhere.com'
+const url = 'https://sircroco.pythonanywhere.com'
 // const total_path = `${url}/total`
 
 const total_path = `${url}/facturation-net-total`

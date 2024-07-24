@@ -1,5 +1,5 @@
 // const base_url_auth = 'http://127.0.0.1:8000'
-const base_url_auth = 'http://sircroco.pythonanywhere.com'
+const base_url_auth = 'https://sircroco.pythonanywhere.com'
 // Connexion
 async function login(telephone, password) {
     const response = await fetch(`${base_url_auth}/login-token`, {
