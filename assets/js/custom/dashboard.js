@@ -1,28 +1,28 @@
-const authToken = localStorage.getItem('authToken');
+// const authToken = localStorage.getItem('authToken');
 
-async function makeAuthorizedRequest(url, method = 'GET', data = null) {
-    const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Token ${authToken}`
-    };
+// async function makeAuthorizedRequest(url, method = 'GET', data = null) {
+//     const headers = {
+//       'Content-Type': 'application/json',
+//       'Authorization': `Token ${authToken}`
+//     };
   
-    const options = {
-      method,
-      headers
-    };
+//     const options = {
+//       method,
+//       headers
+//     };
   
-    if (data) {
-      options.body = JSON.stringify(data);
-    }
+//     if (data) {
+//       options.body = JSON.stringify(data);
+//     }
   
-    const response = await fetch(url, options);
+//     const response = await fetch(url, options);
   
-    if (response.ok) {
-      return await response.json();
-    } else {
-      throw new Error(`Error ${response.status}: ${response.statusText}`);
-    }
-  }
+//     if (response.ok) {
+//       return await response.json();
+//     } else {
+//       throw new Error(`Error ${response.status}: ${response.statusText}`);
+//     }
+//   }
 
 // const url = 'https://jenesaispas.chickenkiller.com'
 // const url = 'http://127.0.0.1:8000'
